@@ -21,8 +21,9 @@ public class FleetDoctrineAchievement extends MagicAchievement {
     private final Set<String> allTechTypes = new HashSet<>();
 
     @Override
-    public void onApplicationLoaded() {
-        super.onApplicationLoaded();
+    public void onApplicationLoaded(boolean isComplete) {
+        super.onApplicationLoaded(isComplete);
+        if (isComplete) return;
         vanillaFactions.add(Factions.INDEPENDENT);
         vanillaFactions.add(Factions.PIRATES);
         vanillaFactions.add(Factions.PERSEAN);
@@ -38,8 +39,9 @@ public class FleetDoctrineAchievement extends MagicAchievement {
     }
 
     @Override
-    public void onSaveGameLoaded() {
-        super.onSaveGameLoaded();
+    public void onSaveGameLoaded(boolean isComplete) {
+        super.onSaveGameLoaded(isComplete);
+        if (isComplete) return;
         allTechTypes.clear();
 
         for (String factionId : vanillaFactions) {

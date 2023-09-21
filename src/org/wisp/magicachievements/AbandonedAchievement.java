@@ -11,8 +11,9 @@ import org.magiclib.achievements.MagicAchievement;
  */
 public class AbandonedAchievement extends MagicAchievement implements PlayerColonizationListener {
     @Override
-    public void onSaveGameLoaded() {
-        super.onSaveGameLoaded();
+    public void onSaveGameLoaded(boolean isComplete) {
+        super.onSaveGameLoaded(isComplete);
+        if (isComplete) return;
         Global.getSector().getListenerManager().addListener(this, true);
     }
 

@@ -29,7 +29,7 @@ internal class OverInvestedAchievementSpec : MagicAchievementSpec(
     name = "Overinvested",
     description = "Played the same save for 30 cycles.",
     tooltip = null,
-    script = "org.wisp.magicachievements.OverInvestedAchievement",
+    script = OverInvestedAchievement::class.java.name,
     image = null,
     hasProgressBar = false,
     spoilerLevel = MagicAchievementSpoilerLevel.Hidden,
@@ -50,6 +50,7 @@ internal class OverInvestedAchievement : MagicAchievement() {
 
 /**
  * The part that would normally be in the csv, but in code to hide it better from prying eyes.
+ * Unused, can't really get it without mods.
  */
 internal class OldEarthAchievementSpec : MagicAchievementSpec(
     modId = MagicVariables.MAGICLIB_ID,
@@ -66,8 +67,9 @@ internal class OldEarthAchievementSpec : MagicAchievementSpec(
 )
 
 internal class OldEarthAchievement : MagicAchievement(), SurveyPlanetListener {
-    override fun onSaveGameLoaded() {
-        super.onSaveGameLoaded()
+    override fun onSaveGameLoaded(isComplete: Boolean) {
+        super.onSaveGameLoaded(isComplete)
+        if (isComplete) return
         Global.getSector().listenerManager.addListener(this, true)
     }
 

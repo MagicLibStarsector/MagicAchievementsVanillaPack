@@ -7,33 +7,24 @@ import com.fs.starfarer.api.campaign.econ.Industry
 import com.fs.starfarer.api.campaign.econ.MarketAPI
 import com.fs.starfarer.api.campaign.listeners.ColonyPlayerHostileActListener
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.MarketCMD
-import com.fs.starfarer.api.ui.TooltipMakerAPI
-import com.fs.starfarer.api.util.Misc
-import org.json.JSONArray
-import org.magiclib.achievements.MagicAchievement
-import org.magiclib.kotlin.toStringList
+import org.magiclib.achievements.MagicTargetListAchievement
 
-class SatBombEverybodyAchievement : MagicAchievement(), ColonyPlayerHostileActListener {
-    companion object {
-        private const val key = "factionsBombed"
-    }
+class SatBombEverybodyAchievement : MagicTargetListAchievement(), ColonyPlayerHostileActListener {
+    override fun onSaveGameLoaded(isComplete: Boolean) {
+        super.onSaveGameLoaded(isComplete)
+        if (isComplete) return
 
-    private val targets: MutableSet<String> = HashSet()
-
-    val targetsBombardedSoFar: Set<String>
-        get() = ((memory[key] as? JSONArray)?.toStringList() ?: emptyList()).toSet()
-
-    override fun onApplicationLoaded() {
-        super.onApplicationLoaded()
-        targets.add("volturn")
-        targets.add("gilead")
-        targets.add("jangala")
-        targets.add("hesperus") // TODO ?
-        targets.add("chicomoztoc")
-    }
-
-    override fun onSaveGameLoaded() {
-        super.onSaveGameLoaded()
+        setTargets(
+            listOf(
+                "chicomoztoc",
+                "gilead",
+                "hesperus", // TODO ?
+                "jangala",
+                "volturn",
+            )
+                .associateWith { Global.getSector().economy.getMarket(it)?.name ?: it }
+        )
+        saveChanges()
 
         Global.getSector().listenerManager.addListener(this, true)
     }
@@ -51,43 +42,11 @@ class SatBombEverybodyAchievement : MagicAchievement(), ColonyPlayerHostileActLi
         market ?: return
         actionData ?: return
 
-        if (market.id !in targets)
+        if (market.id !in targets.keys || market.id in targets.filterValues { it.isComplete })
             return
 
-        val existing: MutableSet<String> = targetsBombardedSoFar.toMutableSet()
-        val initialCount = existing.size
-        existing += market.id
-
-        if (existing.size != initialCount) {
-            memory[key] = existing
-            saveChanges()
-        }
-
-        if (existing.containsAll(targets)) {
-            completeAchievement()
-            saveChanges()
-            onDestroyed()
-        }
-    }
-
-    override fun getProgress(): Float = targetsBombardedSoFar.size.toFloat()
-    override fun getMaxProgress(): Float = targets.size.toFloat()
-
-    override fun hasTooltip() = true
-
-    override fun createTooltip(tooltipMakerAPI: TooltipMakerAPI, isExpanded: Boolean, width: Float) {
-        createTooltipHeader(tooltipMakerAPI)
-        val allPlanets = Global.getSector().starSystems.flatMap { it.planets }
-        targets.mapNotNull { planetId -> allPlanets.first { it.id == planetId } }
-            .sortedBy { it.name ?: "" }
-            .forEach { spec ->
-                val hasItem = spec.id in targetsBombardedSoFar
-                tooltipMakerAPI.addPara(
-                    spec.name,
-                    if (hasItem) Misc.getTextColor() else Misc.getNegativeHighlightColor(),
-                    3f
-                )
-            }
+        setTargetComplete(market.id)
+        saveChanges()
     }
 
     override fun reportRaidForValuablesFinishedBeforeCargoShown(

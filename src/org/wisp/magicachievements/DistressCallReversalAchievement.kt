@@ -10,8 +10,10 @@ import com.fs.starfarer.api.impl.campaign.events.nearby.DistressCallPirateAmbush
 import org.magiclib.achievements.MagicAchievement
 
 class DistressCallReversalAchievement : MagicAchievement(), FleetEventListener {
-    override fun onSaveGameLoaded() {
-        super.onSaveGameLoaded()
+    override fun onSaveGameLoaded(isComplete: Boolean) {
+        super.onSaveGameLoaded(isComplete)
+        if (isComplete) return
+
         if (!Global.getSector().listenerManager.hasListener(this))
             Global.getSector().listenerManager.addListener(this, true)
     }

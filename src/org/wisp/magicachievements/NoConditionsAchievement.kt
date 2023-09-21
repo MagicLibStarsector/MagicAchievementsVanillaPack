@@ -6,8 +6,9 @@ import com.fs.starfarer.api.campaign.listeners.SurveyPlanetListener
 import org.magiclib.achievements.MagicAchievement
 
 class NoConditionsAchievement : MagicAchievement(), SurveyPlanetListener {
-    override fun onSaveGameLoaded() {
-        super.onSaveGameLoaded()
+    override fun onSaveGameLoaded(isComplete: Boolean) {
+        super.onSaveGameLoaded(isComplete)
+        if (isComplete) return
         Global.getSector().listenerManager.addListener(this, true)
     }
 

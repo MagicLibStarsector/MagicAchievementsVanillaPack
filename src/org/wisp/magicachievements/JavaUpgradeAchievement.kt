@@ -3,7 +3,8 @@ package org.wisp.magicachievements
 import org.magiclib.achievements.MagicAchievement
 
 class JavaUpgradeAchievement : MagicAchievement() {
-    override fun onSaveGameLoaded() {
+    override fun onSaveGameLoaded(isComplete: Boolean) {
+        if (isComplete) return
         if (!System.getProperty("java.runtime.version").contains("1.7.0", ignoreCase = true)) {
             completeAchievement()
             saveChanges()

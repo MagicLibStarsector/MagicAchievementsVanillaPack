@@ -46,8 +46,9 @@ class OmegaLowDpAchievement : MagicAchievement() {
         }
     }
 
-    override fun onSaveGameLoaded() {
-        super.onSaveGameLoaded()
+    override fun onSaveGameLoaded(isComplete: Boolean) {
+        super.onSaveGameLoaded(isComplete)
+        if (isComplete) return
         Global.getSector().removeTransientScriptsOfClass(OmegaLowDpAchievementListener::class.java)
         Global.getSector()?.addTransientListener(OmegaLowDpAchievementListener())
     }

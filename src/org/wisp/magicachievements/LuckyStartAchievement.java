@@ -13,8 +13,9 @@ public class LuckyStartAchievement extends MagicAchievement implements DiscoverE
     int days = 30;
 
     @Override
-    public void onSaveGameLoaded() {
-        super.onSaveGameLoaded();
+    public void onSaveGameLoaded(boolean isComplete) {
+        super.onSaveGameLoaded(isComplete);
+        if (isComplete) return;
         if (MagicMisc.getElapsedDaysSinceGameStart() > days)
             return;
 

@@ -34,7 +34,7 @@ class BlackHoleAchievement : MagicAchievement() {
         }
     }
 
-    override fun onSaveGameLoaded() {
+    override fun onSaveGameLoaded(isComplete: Boolean) {
         if (isComplete) return
 
         plugin = Plugin()

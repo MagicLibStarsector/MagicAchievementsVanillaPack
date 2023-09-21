@@ -13,8 +13,8 @@ class RevisionistAchievement : MagicAchievement() {
         private val interval = IntervalUtil(1f, 1f)
     }
 
-    override fun onSaveGameLoaded() {
-        super.onSaveGameLoaded()
+    override fun onSaveGameLoaded(isComplete: Boolean) {
+        super.onSaveGameLoaded(isComplete)
         if (isComplete) return
         memory[LOADED_SAVE_KEY] = true
         saveChanges()

@@ -2,47 +2,39 @@ package org.wisp.magicachievements
 
 import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.impl.campaign.ids.Items
-import com.fs.starfarer.api.ui.TooltipMakerAPI
-import com.fs.starfarer.api.util.Misc
-import org.json.JSONArray
-import org.magiclib.achievements.MagicAchievement
+import org.magiclib.achievements.MagicTargetListAchievement
 import org.magiclib.kotlin.getFactionMarkets
-import org.magiclib.kotlin.toStringList
 
-class ColonyItemsAchievement : MagicAchievement() {
-    companion object {
-        private const val key = "itemsAcquired"
-    }
+class ColonyItemsAchievement : MagicTargetListAchievement() {
+    override fun onApplicationLoaded(isComplete: Boolean) {
+        super.onApplicationLoaded(isComplete)
+        if (isComplete) return
 
-    private val targets: MutableSet<String> = HashSet()
-
-    val itemsAcquiredSoFar: Set<String>
-        get() =  ((memory[key] as? JSONArray)?.toStringList() ?: emptyList()).toSet()
-
-    override fun onApplicationLoaded() {
-        super.onApplicationLoaded()
-        targets.addAll(
+        setTargets(
             listOf(
-                Items.CORRUPTED_NANOFORGE,
-                Items.PRISTINE_NANOFORGE,
-                Items.SYNCHROTRON,
-                Items.ORBITAL_FUSION_LAMP,
-                Items.MANTLE_BORE,
-                Items.CATALYTIC_CORE,
-                Items.SOIL_NANITES,
                 Items.BIOFACTORY_EMBRYO,
-                Items.FULLERENE_SPOOL,
-                Items.PLASMA_DYNAMO,
+                Items.CATALYTIC_CORE,
+                Items.CORONAL_PORTAL,
                 Items.CRYOARITHMETIC_ENGINE,
-                Items.DRONE_REPLICATOR,
                 Items.DEALMAKER_HOLOSUITE,
-                Items.CORONAL_PORTAL
+                Items.DRONE_REPLICATOR,
+                Items.FULLERENE_SPOOL,
+                Items.MANTLE_BORE,
+                Items.ORBITAL_FUSION_LAMP,
+                Items.PLASMA_DYNAMO,
+                Items.PRISTINE_NANOFORGE,
+                Items.SOIL_NANITES,
+                Items.SYNCHROTRON,
+                Items.CORRUPTED_NANOFORGE,
             )
+                .associateWith { Global.getSettings().getSpecialItemSpec(it)?.name ?: it }
         )
+        saveChanges()
     }
 
-    override fun onSaveGameLoaded() {
-        super.onSaveGameLoaded()
+    override fun onSaveGameLoaded(isComplete: Boolean) {
+        super.onSaveGameLoaded(isComplete)
+        if (isComplete) return
 
         Global.getSector().listenerManager.addListener(this, true)
     }
@@ -55,47 +47,21 @@ class ColonyItemsAchievement : MagicAchievement() {
     override fun advanceAfterInterval(amount: Float) {
         super.advanceAfterInterval(amount)
 
-        val existing: MutableSet<String> = itemsAcquiredSoFar.toMutableSet()
-        val initialCount = existing.size
+        val itemsAlreadyInstalled = targets.filter { it.value.isComplete }
 
-        val installedItems = Global.getSector().playerFaction
+        Global.getSector().playerFaction
             ?.getFactionMarkets().orEmpty()
             .flatMap { marketAPI ->
                 marketAPI.industries.orEmpty()
                     .flatMap { it.installableItems.orEmpty() }
             }
-            .map { it.currentlyInstalledItemData.id }
+            .mapNotNull { it.currentlyInstalledItemData?.id }
             .toSet()
-        existing += installedItems
-
-        if (existing.size != initialCount) {
-            memory[key] = existing
-            saveChanges()
-        }
-
-        if (existing.containsAll(targets)) {
-            completeAchievement()
-            saveChanges()
-            onDestroyed()
-        }
-    }
-
-    override fun getProgress(): Float = itemsAcquiredSoFar.size.toFloat()
-    override fun getMaxProgress(): Float = targets.size.toFloat()
-
-    override fun hasTooltip() = true
-
-    override fun createTooltip(tooltipMakerAPI: TooltipMakerAPI, isExpanded: Boolean, width: Float) {
-        createTooltipHeader(tooltipMakerAPI)
-        targets.mapNotNull { item -> Global.getSettings().getSpecialItemSpec(item) }
-            .sortedBy { it.name }
-            .forEach { spec ->
-                val hasItem = spec.id in itemsAcquiredSoFar
-                tooltipMakerAPI.addPara(
-                    spec.name,
-                    if (hasItem) Misc.getTextColor() else Misc.getNegativeHighlightColor(),
-                    3f
-                )
+            .forEach { installedItem ->
+                if (installedItem !in itemsAlreadyInstalled) {
+                    setTargetComplete(installedItem)
+                    saveChanges()
+                }
             }
     }
 }
