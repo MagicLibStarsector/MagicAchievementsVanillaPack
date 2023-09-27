@@ -19,8 +19,7 @@ class BlackHoleAchievement : MagicAchievement() {
 
             Global.getSector().starSystems
                 .flatMap { it.planets }
-                .filter { it.isStar }
-                .filter { it.spec.isBlackHole }
+                .filter { it.isStar && it.spec.isBlackHole }
                 .forEach { hole ->
                     // player fleet inside black hole
                     if (hole.location.getDistance(Global.getSector().playerFleet.location) < hole.radius) {

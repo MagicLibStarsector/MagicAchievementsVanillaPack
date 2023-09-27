@@ -12,7 +12,7 @@ class BuiltInsAchievement : MagicAchievement() {
         super.advanceAfterInterval(amount)
 
         val existing: MutableMap<String, MutableSet<String>> =
-            (memory[key] as? MutableMap<String, MutableSet<String>>?) ?: mutableMapOf()
+            builtInsInstalled()
         val countBeforeChange = existing.values.flatten().size
 
         PlaythroughLog.getInstance().sModsInstalled
@@ -36,5 +36,13 @@ class BuiltInsAchievement : MagicAchievement() {
         saveChanges()
     }
 
+    private fun builtInsInstalled(): MutableMap<String, MutableSet<String>> = (memory[key] as? MutableMap<String, MutableSet<String>>?) ?: mutableMapOf()
+
     private fun createId(shipId: String) = "${Global.getSector().playerPerson.id}-$shipId"
+
+    override fun getHasProgressBar() = true
+
+    override fun getMaxProgress() = numberNeeded.toFloat()
+
+    override fun getProgress() = builtInsInstalled().values.flatten().size.toFloat()
 }

@@ -8,7 +8,7 @@ class MagicAchievementsVanillaPackModPlugin : BaseModPlugin() {
         super.onGameLoad(newGame)
 
         for (spec in Spoilers.getSpoilerAchievementSpecs()) {
-            MagicAchievementManager.getInstance().addAchievementSpec(spec)
+            MagicAchievementManager.getInstance().addAchievementSpecs(spec)
         }
     }
 }

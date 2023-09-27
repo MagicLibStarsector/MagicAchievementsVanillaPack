@@ -23,7 +23,7 @@ public class IcarusAchievement extends MagicAchievement {
         List<PlanetAPI> stars = new ArrayList<>();
 
         for (PlanetAPI planet : Global.getSector().getPlayerFleet().getContainingLocation().getPlanets()) {
-            if (planet.isStar()) {
+            if (planet.isNormalStar()) {
                 stars.add(planet);
             }
         }

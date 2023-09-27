@@ -31,7 +31,6 @@ internal class OverInvestedAchievementSpec : MagicAchievementSpec(
     tooltip = null,
     script = OverInvestedAchievement::class.java.name,
     image = null,
-    hasProgressBar = false,
     spoilerLevel = MagicAchievementSpoilerLevel.Hidden,
     rarity = MagicAchievementRarity.Epic
 )
@@ -61,7 +60,6 @@ internal class OldEarthAchievementSpec : MagicAchievementSpec(
     tooltip = null,
     script = "org.wisp.magicachievements.OldEarthAchievement",
     image = null,
-    hasProgressBar = false,
     spoilerLevel = MagicAchievementSpoilerLevel.Hidden,
     rarity = MagicAchievementRarity.Legendary
 )
