@@ -33,10 +33,10 @@ class BuiltInsAchievement : MagicAchievement() {
             completeAchievement()
         }
 
-        saveChanges()
     }
 
-    private fun builtInsInstalled(): MutableMap<String, MutableSet<String>> = (memory[key] as? MutableMap<String, MutableSet<String>>?) ?: mutableMapOf()
+    private fun builtInsInstalled(): MutableMap<String, MutableSet<String>> =
+        (memory[key] as? MutableMap<String, MutableSet<String>>?) ?: mutableMapOf()
 
     private fun createId(shipId: String) = "${Global.getSector().playerPerson.id}-$shipId"
 

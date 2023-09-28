@@ -10,7 +10,6 @@ public class TestAchievement extends MagicAchievement {
     public void advanceAfterInterval(float amount) {
         if (MagicMisc.getElapsedDaysSinceGameStart() > 5) {
             completeAchievement(Global.getSector().getPlayerPerson());
-            saveChanges();
         }
     }
 

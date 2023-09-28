@@ -38,7 +38,6 @@ public class LuckyStartAchievement extends MagicAchievement implements DiscoverE
                     for (FleetMemberAPI member : fleet.getMembersWithFightersCopy()) {
                         if (member.isCapital()) {
                             completeAchievement();
-                            saveChanges();
                             Global.getLogger(this.getClass()).info("Lucky start achievement: found ship '" + member.getShipName() + "'.");
                             onDestroyed();
                             return;

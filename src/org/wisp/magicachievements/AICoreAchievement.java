@@ -16,7 +16,6 @@ public class AICoreAchievement extends MagicAchievement {
         for (MarketAPI playerMarket : Misc.getPlayerMarkets(false)) {
             if (RogueAICore.get(playerMarket) != null) {
                 completeAchievement();
-                saveChanges();
             }
         }
     }

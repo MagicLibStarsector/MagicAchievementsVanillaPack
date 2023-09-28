@@ -18,7 +18,6 @@ public class PowerOfTheSunAchievement extends MagicAchievement {
             for (CustomCampaignEntityAPI curr : market.getContainingLocation().getCustomEntities()) {
                 if (curr.getCustomEntityType().equals(Entities.FUSION_LAMP) && curr.getOrbitFocus() == market.getPrimaryEntity()) {
                     completeAchievement();
-                    saveChanges();
                 }
             }
         }

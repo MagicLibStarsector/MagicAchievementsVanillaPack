@@ -7,7 +7,6 @@ class JavaUpgradeAchievement : MagicAchievement() {
         if (isComplete) return
         if (!System.getProperty("java.runtime.version").contains("1.7.0", ignoreCase = true)) {
             completeAchievement()
-            saveChanges()
         }
     }
 }

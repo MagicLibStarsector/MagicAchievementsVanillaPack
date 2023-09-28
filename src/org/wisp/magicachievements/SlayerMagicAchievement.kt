@@ -25,11 +25,8 @@ abstract class SlayerMagicAchievement : MagicAchievement() {
             val involvedFraction = battle.playerInvolvementFraction
 
             shipsKilled += (recentShipsKilled * involvedFraction).roundToInt()
-            this@SlayerMagicAchievement.saveChanges()
-
             if (shipsKilled > maxProgress) {
                 this@SlayerMagicAchievement.completeAchievement()
-                this@SlayerMagicAchievement.saveChanges()
                 this@SlayerMagicAchievement.onDestroyed()
             }
         }

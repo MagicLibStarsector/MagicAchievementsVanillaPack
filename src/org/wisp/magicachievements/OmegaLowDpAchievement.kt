@@ -36,7 +36,6 @@ class OmegaLowDpAchievement : MagicAchievement() {
 
                     if (playerDeployedAmount <= 80) {
                         completeAchievement()
-                        saveChanges()
                         onDestroyed()
                     }
                 }

@@ -24,7 +24,6 @@ class BlackHoleAchievement : MagicAchievement() {
                     // player fleet inside black hole
                     if (hole.location.getDistance(Global.getSector().playerFleet.location) < hole.radius) {
                         completeAchievement()
-                        saveChanges()
                         return null
                     }
                 }

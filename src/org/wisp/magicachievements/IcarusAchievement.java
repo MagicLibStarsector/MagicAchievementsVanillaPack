@@ -34,7 +34,6 @@ public class IcarusAchievement extends MagicAchievement {
         for (PlanetAPI star : stars) {
             if (star.getRadius() > Vector2f.sub(playerLocation, star.getLocation(), null).length()) {
                 completeAchievement();
-                saveChanges();
                 return;
             }
         }

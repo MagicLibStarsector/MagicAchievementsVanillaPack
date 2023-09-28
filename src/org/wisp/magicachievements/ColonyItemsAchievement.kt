@@ -29,7 +29,6 @@ class ColonyItemsAchievement : MagicTargetListAchievement() {
             )
                 .associateWith { Global.getSettings().getSpecialItemSpec(it)?.name ?: it }
         )
-        saveChanges()
     }
 
     override fun onSaveGameLoaded(isComplete: Boolean) {
@@ -60,7 +59,6 @@ class ColonyItemsAchievement : MagicTargetListAchievement() {
             .forEach { installedItem ->
                 if (installedItem !in itemsAlreadyInstalled) {
                     setTargetComplete(installedItem)
-                    saveChanges()
                 }
             }
     }

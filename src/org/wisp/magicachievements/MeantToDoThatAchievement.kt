@@ -47,7 +47,6 @@ class MeantToDoThatAchievement : MagicAchievement() {
             Global.getLogger(MeantToDoThatAchievement::class.java)
                 .info("Damage (${result.damageToHull} ${result.type.name} to hull) applied to ${target.id} by ${source.id}, with both dead.")
             completeAchievement()
-            saveChanges()
 
             for (ship in Global.getCombatEngine().ships) {
                 ship.removeListenerOfClass(DamageDetectorListener::class.java)

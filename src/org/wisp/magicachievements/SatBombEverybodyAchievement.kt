@@ -24,7 +24,6 @@ class SatBombEverybodyAchievement : MagicTargetListAchievement(), ColonyPlayerHo
             )
                 .associateWith { Global.getSector().economy.getMarket(it)?.name ?: it }
         )
-        saveChanges()
 
         Global.getSector().listenerManager.addListener(this, true)
     }
@@ -46,7 +45,6 @@ class SatBombEverybodyAchievement : MagicTargetListAchievement(), ColonyPlayerHo
             return
 
         setTargetComplete(market.id)
-        saveChanges()
     }
 
     override fun reportRaidForValuablesFinishedBeforeCargoShown(

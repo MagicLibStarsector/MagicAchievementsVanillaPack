@@ -28,7 +28,6 @@ class DistressCallReversalAchievement : MagicAchievement(), FleetEventListener {
             } == true
         ) {
             completeAchievement()
-            saveChanges()
         }
     }
 

@@ -87,7 +87,6 @@ public class FleetDoctrineAchievement extends MagicAchievement {
         }
 
         completeAchievement();
-        saveChanges();
     }
 
     @Override

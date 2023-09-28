@@ -42,7 +42,6 @@ internal class OverInvestedAchievement : MagicAchievement() {
     override fun advanceAfterInterval(amount: Float) {
         if (MagicMisc.getElapsedDaysSinceGameStart() > (365 * 30)) {
             completeAchievement()
-            saveChanges()
         }
     }
 }
@@ -79,7 +78,6 @@ internal class OldEarthAchievement : MagicAchievement(), SurveyPlanetListener {
     override fun reportPlayerSurveyedPlanet(planet: PlanetAPI?) {
         if ((planet?.market?.hazardValue ?: 0f) <= 0.50f) {
             completeAchievement()
-            saveChanges()
         }
     }
 }

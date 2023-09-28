@@ -19,7 +19,6 @@ public class InspectionAchievement extends MagicAchievement {
             if (hegIntel.isPlayerTargeted()
                     && hegIntel.getOutcome() == HegemonyInspectionIntel.HegemonyInspectionOutcome.TASK_FORCE_DESTROYED) {
                 completeAchievement();
-                saveChanges();
             }
         }
     }

@@ -31,7 +31,6 @@ public class GateTravelAchievement extends MagicAchievement implements GateTrans
 
             if (distance >= 60) {
                 completeAchievement();
-                saveChanges();
                 onDestroyed();
             }
         }

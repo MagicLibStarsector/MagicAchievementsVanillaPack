@@ -17,7 +17,6 @@ class RevisionistAchievement : MagicAchievement() {
         super.onSaveGameLoaded(isComplete)
         if (isComplete) return
         memory[LOADED_SAVE_KEY] = true
-        saveChanges()
     }
 
     override fun advanceInCombat(amount: Float, events: List<InputEventAPI>, isSimulation: Boolean) {
@@ -40,14 +39,12 @@ class RevisionistAchievement : MagicAchievement() {
                 // If the "loaded save" is true, then they are fighting the same fleets after (re)loading a save.
                 if (memory[LOADED_SAVE_KEY] == true) {
                     completeAchievement()
-                    saveChanges()
                 }
             } else {
                 // If the fleet ids hash is different, then the player is in a different battle.
                 // Store the new hash and reset the "loaded save" flag.
                 memory[FLEET_IDS_HASHED_KEY] = fleetIdsHashed
                 memory[LOADED_SAVE_KEY] = false
-                saveChanges()
             }
         }
     }

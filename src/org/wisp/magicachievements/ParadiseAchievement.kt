@@ -20,7 +20,6 @@ class ParadiseAchievement : MagicAchievement(), SurveyPlanetListener {
     override fun reportPlayerSurveyedPlanet(planet: PlanetAPI?) {
         if ((planet?.market?.hazardValue ?: 0f) <= 0.75f) {
             completeAchievement()
-            saveChanges()
         }
     }
 }

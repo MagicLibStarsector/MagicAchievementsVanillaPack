@@ -21,7 +21,6 @@ class NeuralAchievement : MagicAchievement() {
             completeAchievement()
             Global.getLogger(this::class.java)
                 .info("NeuralAchievement completed when piloting ${shipsPilotedByPlayer.joinToString { it.hullSpec.hullName }}.")
-            saveChanges()
         }
     }
 }

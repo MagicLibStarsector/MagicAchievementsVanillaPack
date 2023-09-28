@@ -18,9 +18,8 @@ class NoConditionsAchievement : MagicAchievement(), SurveyPlanetListener {
     }
 
     override fun reportPlayerSurveyedPlanet(planet: PlanetAPI?) {
-        if (planet?.market?.conditions?.isEmpty() == true) {
+        if (planet?.market?.conditions?.none { it.requiresSurveying() } == true) {
             completeAchievement()
-            saveChanges()
         }
     }
 }
@@ -33,8 +32,7 @@ class NoConditionsAchievement : MagicAchievement(), SurveyPlanetListener {
 //
 //        if (memory[getSectorKey()] == null) {
 //            memory[getSectorKey()] = findPlanets().map { it.id }.distinct()
-//            saveChanges()
-//            return
+//            //            return
 //        }
 //
 //        val preexistingMatchingPlanetsInSector = (memory[getSectorKey()] as? JSONArray)?.toStringList() ?: emptyList()
@@ -48,8 +46,7 @@ class NoConditionsAchievement : MagicAchievement(), SurveyPlanetListener {
 //            memory["${specId}Name"] =
 //                "${newMatchingPlanets.first().fullName} in ${newMatchingPlanets.first().starSystem.name}"
 //            completeAchievement()
-//            saveChanges()
-//        }
+//            //        }
 //    }
 //
 //    abstract fun findPlanets(): List<PlanetAPI>

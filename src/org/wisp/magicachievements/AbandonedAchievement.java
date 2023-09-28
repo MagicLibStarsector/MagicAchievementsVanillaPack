@@ -26,7 +26,6 @@ public class AbandonedAchievement extends MagicAchievement implements PlayerColo
     @Override
     public void reportPlayerAbandonedColony(MarketAPI colony) {
         completeAchievement();
-        saveChanges();
     }
 
     @Override

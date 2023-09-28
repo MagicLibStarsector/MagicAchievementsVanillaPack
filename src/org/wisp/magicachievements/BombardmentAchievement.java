@@ -27,7 +27,6 @@ public class BombardmentAchievement extends MagicAchievement implements ColonyPl
     @Override
     public void reportSaturationBombardmentFinished(InteractionDialogAPI dialog, MarketAPI market, MarketCMD.TempData actionData) {
         completeAchievement();
-        saveChanges();
         onDestroyed();
     }
 

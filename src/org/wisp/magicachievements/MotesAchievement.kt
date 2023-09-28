@@ -44,7 +44,6 @@ class MotesAchievement : MagicTargetListAchievement() {
             .forEach { newMoteSeen ->
                 if (newMoteSeen !in motesSeen) {
                     setTargetComplete(newMoteSeen)
-                    saveChanges()
                 }
             }
     }
