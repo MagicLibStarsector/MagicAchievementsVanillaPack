@@ -23,8 +23,8 @@ wisp_magicAchievementsVanillaPack_slayer4,"Reaper","Destroyed 5000 enemy ships."
 wisp_magicAchievementsVanillaPack_slayer5,"Doomguy","Destroyed 10000 enemy ships.",,org.wisp.magicachievements.Slayer10000MagicAchievement,,VISIBLE,LEGENDARY
 
 # Common
-wisp_magicAchievementsVanillaPack_blackhole, "Died In A Black Hole","Died in a black hole.",,org.wisp.magicachievements.BlackHoleAchievement,,VISIBLE,COMMON
-wisp_magicAchievementsVanillaPack_sundive, "Icarus","Flew into a sun.",,org.wisp.magicachievements.IcarusAchievement,,VISIBLE,COMMON
+wisp_magicAchievementsVanillaPack_blackhole,"Died In A Black Hole","Died in a black hole.",,org.wisp.magicachievements.BlackHoleAchievement,,VISIBLE,COMMON
+wisp_magicAchievementsVanillaPack_sundive,"Icarus","Flew into a sun.",,org.wisp.magicachievements.IcarusAchievement,,VISIBLE,COMMON
 wisp_magicAchievementsVanillaPack_bombardment,"I Am Become Death, The Destroyer Of Worlds","Saturation bombarded an inhabited planet.",,org.wisp.magicachievements.BombardmentAchievement,,VISIBLE,COMMON
 wisp_magicAchievementsVanillaPack_revisionist,"Revisionist","Un-lost a battle.",,org.wisp.magicachievements.RevisionistAchievement,,VISIBLE,COMMON
 wisp_magicAchievementsVanillaPack_builtins,"Pristine Condition","Built in 20 hullmods.",,org.wisp.magicachievements.BuiltInsAchievement,,VISIBLE,COMMON
@@ -47,7 +47,7 @@ wisp_magicAchievementsVanillaPack_paradise,"Paradise","Surveyed a planet with 75
 wisp_magicAchievementsVanillaPack_noconditions,"Unconditional","Surveyed a planet with no conditions.",,org.wisp.magicachievements.NoConditionsAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_powerofthesun,"The Power Of The Sun, In The Palm Of My Hand","Gave one of your colonies extra sunlight.",,org.wisp.magicachievements.PowerOfTheSunAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_motes,"Who You Gonna Call?","Encountered eight different hyperspace ghosts.",,org.wisp.magicachievements.MotesAchievement,,VISIBLE,RARE
-wisp_magicAchievementsVanillaPack_luckystart, "Lucky Start","Found a capital derelict within the first month.",,org.wisp.magicachievements.LuckyStartAchievement,,VISIBLE,RARE
+wisp_magicAchievementsVanillaPack_luckystart,"Lucky Start","Found a capital derelict within the first month.",,org.wisp.magicachievements.LuckyStartAchievement,,VISIBLE,RARE
 # Hard to do intentionally, let alone unintentionally, and hard to detect via code.
 # oriondrive, "Cool Guys Don't Look At Explosions","Destroyed an enemy using the orion drive.",,org.wisp.magicachievements.OrionDriveAchievement,,false,VISIBLE,RARE
 

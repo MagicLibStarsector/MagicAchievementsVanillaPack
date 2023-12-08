@@ -1,0 +1,24 @@
+id,hullId,name,description,unlockedAutomatically,spriteId,tags
+# id: Required. The id of the paintjob. Must be unique. Prefix with your mod id.
+# hullId: Required. The id of the hull that this paintjob applies to. Must be a valid hull id.
+# name: Required. The name of the paintjob.
+# description: Optional, default none. The description of the paintjob. Aim for one or two sentences. If not unlocked by default, put unlock conditions here.
+# unlockedAutomatically: Optional, default true. If true, the paintjob is unlocked by default. Otherwise, it must be manually unlocked using code (e.g. in achievement complete code).
+# spriteId: Required. The path or spriteName of the ship sprite.
+# tags: Optional, currently unused.
+
+# Example
+# magiclib_examplePaintjob, "onslaught","Oldslaught","Original Onslaught sprite. Unlocked after completing the 'Slayer' achievement.",false,"graphics/ships/oldslaught.png",
+
+sra_charybdis_orig,"ms_boss_charybdis","Original",,true,"graphics/paintjobs/ms_boss_charybdis.png",
+
+# Thank you BirdWanderer
+epic_gamer_prometheus,"prometheus","Epic Gamer",,true,"graphics/paintjobs/epic_gamer_prometheus.png",
+dominator_xiv_bad,"dominator_xiv","Faded",,true,"graphics/paintjobs/dominator_xiv_bad.png",
+pink_wolf,"wolf","Pink",,true,"graphics/paintjobs/pink_wolf.png",
+
+# Thank you Amazigh
+onslaught_psychedelic,"onslaught","Psychedelic",,false,"graphics/paintjobs/onslaught_psychedelic.png",""
+
+# lol probably don't leave this in
+bbplus_onslaught,"onslaught","Bread",,false,"graphics/paintjobs/spoilers/bbplus_onslaught.png","MagicLib_PermanentPJ,MagicLib_ShinyPJ"

@@ -20,17 +20,17 @@ class MagicAchievementsVanillaPackModPlugin : BaseModPlugin() {
     }
 
     fun addPaintjobs() {
-        MagicPaintjobManager.addPaintJob(
-            MagicPaintjobSpec(
-                modId = modId,
-                modName = modName,
-                id = "sra_charybdis_orig",
-                hullId = "ms_boss_charybdis",
-                name = "Original",
-                description = null,
-                unlockedAutomatically = true,
-                spriteId = "graphics/paintjobs/ms_boss_charybdis.png"
-            )
-        )
+//        MagicPaintjobManager.addPaintJob(
+//            MagicPaintjobSpec(
+//                modId = modId,
+//                modName = modName,
+//                id = "sra_charybdis_orig",
+//                hullId = "ms_boss_charybdis",
+//                name = "Original",
+//                description = null,
+//                unlockedAutomatically = true,
+//                spriteId = "graphics/paintjobs/ms_boss_charybdis.png"
+//            )
+//        )
     }
 }
