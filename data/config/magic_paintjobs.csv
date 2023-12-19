@@ -1,24 +1,35 @@
-id,hullId,name,description,unlockedAutomatically,spriteId,tags
-# id: Required. The id of the paintjob. Must be unique. Prefix with your mod id.
-# hullId: Required. The id of the hull that this paintjob applies to. Must be a valid hull id.
-# name: Required. The name of the paintjob.
-# description: Optional, default none. The description of the paintjob. Aim for one or two sentences. If not unlocked by default, put unlock conditions here.
-# unlockedAutomatically: Optional, default true. If true, the paintjob is unlocked by default. Otherwise, it must be manually unlocked using code (e.g. in achievement complete code).
-# spriteId: Required. The path or spriteName of the ship sprite.
-# tags: Optional, currently unused.
-
-# Example
-# magiclib_examplePaintjob, "onslaught","Oldslaught","Original Onslaught sprite. Unlocked after completing the 'Slayer' achievement.",false,"graphics/ships/oldslaught.png",
-
-sra_charybdis_orig,"ms_boss_charybdis","Original",,true,"graphics/paintjobs/ms_boss_charybdis.png",
-
-# Thank you BirdWanderer
-epic_gamer_prometheus,"prometheus","Epic Gamer",,true,"graphics/paintjobs/epic_gamer_prometheus.png",
-dominator_xiv_bad,"dominator_xiv","Faded",,true,"graphics/paintjobs/dominator_xiv_bad.png",
-pink_wolf,"wolf","Pink",,true,"graphics/paintjobs/pink_wolf.png",
-
-# Thank you Amazigh
-onslaught_psychedelic,"onslaught","Psychedelic",,false,"graphics/paintjobs/onslaught_psychedelic.png",""
-
-# lol probably don't leave this in
-bbplus_onslaught,"onslaught","Bread",,false,"graphics/paintjobs/spoilers/bbplus_onslaught.png","MagicLib_PermanentPJ,MagicLib_ShinyPJ"
+id,hullId,name,spriteId,unlockedAutomatically,tags,unlockConditions,description
+# id: Required. The id of the paintjob. Must be unique. Prefix with your mod id.,,,,,,,
+# hullId: Required. The id of the hull that this paintjob applies to. Must be a valid hull id.,,,,,,,
+# name: Required. The name of the paintjob.,,,,,,,
+# spriteId: Required. The path or spriteName of the ship sprite.,,,,,,,
+# unlockedAutomatically: Optional, default true. If true, the paintjob is unlocked by default. Otherwise, it must be manually unlocked using code (e.g. in achievement complete code).,,,
+# tags: Optional, currently unused.,,,,,,
+# unlockConditions: Optional, default none. How to unlock the paintjob. Aim for one or two sentences.,,,,,,
+# description: Optional, default none. The description of the paintjob. Aim for one or two sentences.,,,,,,
+,,,,,,,
+# Example,,,,,,,
+# magiclib_examplePaintjob," ""onslaught""",Oldslaught,graphics/ships/oldslaught.png,false,,Complete the 'Slayer' achievement to unlock.,Original Onslaught sprite. 
+,,,,,,,
+# Original sprite by MShadowy (the SRA Wisp version has an slightly different sprite by Selkie),,,,,,,
+sra_charybdis_orig,ms_boss_charybdis,Original,graphics/paintjobs/ms_boss_charybdis.png,true,,,
+,,,,,,,
+## Thank you BirdWanderer,,,,,,,
+epic_gamer_prometheus,prometheus,Epic Gamer,graphics/paintjobs/epic_gamer_prometheus.png,true,,,
+dominator_xiv_bad,dominator_xiv,Faded,graphics/paintjobs/dominator_xiv_bad.png,true,,,
+pink_wolf,wolf,Pink,graphics/paintjobs/pink_wolf.png,true,,,
+falcon_phoenix,falcon,Phoenix,graphics/paintjobs/falcon_phoenix.png,false,,,
+,,,,,,,
+# Thank you Amazigh,,,,,,,
+champion_acidTrip,champion,Trip,graphics/paintjobs/champion_acidTrip.png,false,,Complete the Revisionist achievement to unlock.,
+conquest_acidTrip,conquest,Trip,graphics/paintjobs/conquest_acidTrip.png,false,,Complete the Revisionist achievement to unlock.,
+pegasus_acidTrip,pegasus,Trip,graphics/paintjobs/pegasus_acidTrip.png,false,,Complete the Revisionist achievement to unlock.,
+sunder_acidTrip,sunder,Trip,graphics/paintjobs/sunder_acidTrip.png,false,,Complete the Revisionist achievement to unlock.,
+hammerhead_acidTrip,hammerhead,Trip,graphics/paintjobs/hammerhead_acidTrip.png,false,,Complete the Revisionist achievement to unlock.,
+,,,,,,,
+######################,,,,,,,
+### SPOILERS BELOW ###,,,,,,,
+######################,,,,,,,
+,,,,,,,
+# Thank you Amazigh,,,,,,,
+onslaught_psychedelic,onslaught,Psychedelic,graphics/paintjobs/spoilers/onslaught_psychedelic.png,false,"MagicLib_PermanentPJ,MagicLib_ShinyPJ",,

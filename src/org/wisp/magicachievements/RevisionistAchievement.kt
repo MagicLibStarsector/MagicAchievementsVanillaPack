@@ -1,9 +1,11 @@
 package org.wisp.magicachievements
 
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.characters.PersonAPI
 import com.fs.starfarer.api.input.InputEventAPI
 import com.fs.starfarer.api.util.IntervalUtil
 import org.magiclib.achievements.MagicAchievement
+import org.magiclib.paintjobs.MagicPaintjobManager
 import java.util.*
 
 class RevisionistAchievement : MagicAchievement() {
@@ -15,7 +17,11 @@ class RevisionistAchievement : MagicAchievement() {
 
     override fun onSaveGameLoaded(isComplete: Boolean) {
         super.onSaveGameLoaded(isComplete)
-        if (isComplete) return
+        if (isComplete) {
+            // If the achievement is complete but the paintjobs are not unlocked, unlock them.
+            onCompleted(null)
+            return
+        }
         memory[LOADED_SAVE_KEY] = true
     }
 
@@ -47,5 +53,13 @@ class RevisionistAchievement : MagicAchievement() {
                 memory[LOADED_SAVE_KEY] = false
             }
         }
+    }
+
+    override fun onCompleted(completedByPlayer: PersonAPI?) {
+        MagicPaintjobManager.unlockPaintjob("champion_acidTrip")
+        MagicPaintjobManager.unlockPaintjob("conquest_acidTrip")
+        MagicPaintjobManager.unlockPaintjob("pegasus_acidTrip")
+        MagicPaintjobManager.unlockPaintjob("sunder_acidTrip")
+        MagicPaintjobManager.unlockPaintjob("hammerhead_acidTrip")
     }
 }
