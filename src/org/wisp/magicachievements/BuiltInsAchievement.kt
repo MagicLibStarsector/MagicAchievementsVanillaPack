@@ -1,12 +1,24 @@
 package org.wisp.magicachievements
 
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.characters.PersonAPI
 import com.fs.starfarer.api.impl.campaign.plog.PlaythroughLog
 import org.magiclib.achievements.MagicAchievement
+import org.magiclib.paintjobs.MagicPaintjobManager
 
 class BuiltInsAchievement : MagicAchievement() {
     private val key = "magiclib_builtInsAchievement_playerBuiltSmods"
     private val numberNeeded = 20
+    override fun onSaveGameLoaded(isComplete: Boolean) {
+        if (isComplete) {
+            onCompleted(null)
+            return
+        }
+    }
+
+    override fun onCompleted(completedByPlayer: PersonAPI?) {
+        MagicPaintjobManager.unlockPaintjob("fury_aquatic")
+    }
 
     override fun advanceAfterInterval(amount: Float) {
         super.advanceAfterInterval(amount)

@@ -1,12 +1,14 @@
 package org.wisp.magicachievements
 
 import com.fs.starfarer.api.Global
+import com.fs.starfarer.api.characters.PersonAPI
 import com.fs.starfarer.api.combat.CombatEntityAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI
 import com.fs.starfarer.api.combat.listeners.DamageListener
 import com.fs.starfarer.api.input.InputEventAPI
 import org.magiclib.achievements.MagicAchievement
+import org.magiclib.paintjobs.MagicPaintjobManager
 
 class MeantToDoThatAchievement : MagicAchievement() {
     private val _shipIdToListener: MutableMap<String, DamageDetectorListener> = mutableMapOf()
@@ -52,6 +54,20 @@ class MeantToDoThatAchievement : MagicAchievement() {
                 ship.removeListenerOfClass(DamageDetectorListener::class.java)
             }
         }
+    }
+
+    override fun onSaveGameLoaded(isComplete: Boolean) {
+        super.onSaveGameLoaded(isComplete)
+        if (isComplete) {
+            // If the achievement is complete but the paintjobs are not unlocked, unlock them.
+            onCompleted(null)
+            return
+        }
+    }
+
+    override fun onCompleted(completedByPlayer: PersonAPI?) {
+        super.onCompleted(completedByPlayer)
+        MagicPaintjobManager.unlockPaintjob("cryo_phaeton")
     }
 
     private fun applyShipListeners(ships: List<ShipAPI>) {

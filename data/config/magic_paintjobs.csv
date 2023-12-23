@@ -18,14 +18,22 @@ sra_charybdis_orig,ms_boss_charybdis,Original,graphics/paintjobs/ms_boss_charybd
 epic_gamer_prometheus,prometheus,Epic Gamer,graphics/paintjobs/epic_gamer_prometheus.png,true,,,
 dominator_xiv_bad,dominator_xiv,Faded,graphics/paintjobs/dominator_xiv_bad.png,true,,,
 pink_wolf,wolf,Pink,graphics/paintjobs/pink_wolf.png,true,,,
-falcon_phoenix,falcon,Phoenix,graphics/paintjobs/falcon_phoenix.png,false,,,
+falcon_phoenix,falcon,Phoenix,graphics/paintjobs/falcon_phoenix.png,false,,"Complete the The Power Of The Sun, In The Palm Of My Hand achievement to unlock.",
 ,,,,,,,
 # Thank you Amazigh,,,,,,,
-champion_acidTrip,champion,Trip,graphics/paintjobs/champion_acidTrip.png,false,,Complete the Revisionist achievement to unlock.,
-conquest_acidTrip,conquest,Trip,graphics/paintjobs/conquest_acidTrip.png,false,,Complete the Revisionist achievement to unlock.,
-pegasus_acidTrip,pegasus,Trip,graphics/paintjobs/pegasus_acidTrip.png,false,,Complete the Revisionist achievement to unlock.,
-sunder_acidTrip,sunder,Trip,graphics/paintjobs/sunder_acidTrip.png,false,,Complete the Revisionist achievement to unlock.,
-hammerhead_acidTrip,hammerhead,Trip,graphics/paintjobs/hammerhead_acidTrip.png,false,,Complete the Revisionist achievement to unlock.,
+champion_acidTrip,champion,Trip,graphics/paintjobs/champion_acidTrip.png,false,,"Complete the Revisionist achievement to unlock.",
+conquest_acidTrip,conquest,Trip,graphics/paintjobs/conquest_acidTrip.png,false,,"Complete the Revisionist achievement to unlock.",
+pegasus_acidTrip,pegasus,Trip,graphics/paintjobs/pegasus_acidTrip.png,false,,"Complete the Revisionist achievement to unlock.",
+sunder_acidTrip,sunder,Trip,graphics/paintjobs/sunder_acidTrip.png,false,,"Complete the Revisionist achievement to unlock.",
+hammerhead_acidTrip,hammerhead,Trip,graphics/paintjobs/hammerhead_acidTrip.png,false,,"Complete the Revisionist achievement to unlock.",
+
+# Thank you Tartiflette (from https://fractalsoftworks.com/forum/index.php?topic=11036.0),,,,,,,
+cryo_phaeton,phaeton,Cryo,graphics/paintjobs/cryo_phaeton.png,false,,"Complete the You're Coming With Me achievement to unlock.",
+
+
+# Made by Wisp, so...yeah.
+fury_aquatic,fury,Aquatic,graphics/paintjobs/fury_aquatic.png,false,,"Complete the Pristine Condition achievement to unlock.",
+fury_racing,fury,Racing,graphics/paintjobs/fury_racing.png,false,,"Complete the Call An Ambulance, But Not For Me achievement to unlock.",
 ,,,,,,,
 ######################,,,,,,,
 ### SPOILERS BELOW ###,,,,,,,
