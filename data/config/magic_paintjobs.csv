@@ -30,11 +30,12 @@ hammerhead_acidTrip,hammerhead,Trip,graphics/paintjobs/hammerhead_acidTrip.png,f
 # Thank you Tartiflette (from https://fractalsoftworks.com/forum/index.php?topic=11036.0),,,,,,,
 cryo_phaeton,phaeton,Cryo,graphics/paintjobs/cryo_phaeton.png,false,,"Complete the You're Coming With Me achievement to unlock.",
 
+# Thank you Selkie
+champion_gold,champion,Burnt Gold,graphics/paintjobs/champion_gold.png,false,,"Complete the BIG DECIMAL achievement to unlock.",
 
 # Made by Wisp, so...yeah.
 fury_aquatic,fury,Aquatic,graphics/paintjobs/fury_aquatic.png,false,,"Complete the Pristine Condition achievement to unlock.",
 fury_racing,fury,Racing,graphics/paintjobs/fury_racing.png,false,,"Complete the Call An Ambulance, But Not For Me achievement to unlock.",
-champion_gold,champion,Golden,graphics/paintjobs/champion_gold.png,false,,"Complete the BIG DECIMAL achievement to unlock.",
 ,,,,,,,
 ######################,,,,,,,
 ### SPOILERS BELOW ###,,,,,,,
