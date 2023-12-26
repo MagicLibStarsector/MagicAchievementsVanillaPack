@@ -29,6 +29,7 @@ wisp_magicAchievementsVanillaPack_bombardment,"I Am Become Death, The Destroyer 
 wisp_magicAchievementsVanillaPack_revisionist,"Revisionist","Un-lost a battle.",,org.wisp.magicachievements.RevisionistAchievement,,VISIBLE,COMMON
 wisp_magicAchievementsVanillaPack_builtins,"Pristine Condition","Built in 20 hullmods.",,org.wisp.magicachievements.BuiltInsAchievement,,VISIBLE,COMMON
 wisp_magicAchievementsVanillaPack_abandoned,"Going Out For Milk","Abandoned a colony.",,org.wisp.magicachievements.AbandonedAchievement,,VISIBLE,COMMON
+wisp_magicAchievementsVanillaPack_omegaLost,"Tapped Out","Lost to <ultra redacted>.",,org.wisp.magicachievements.OmegaLostAchievement,,SPOILER,COMMON
 # Bounty result isn't public, implementation would be too annoying, would need to copy/paste the bounty code.
 # bounties,"Blood Money","Completed 10 person bounties.",,org.wisp.magicachievements.BountiesAchievement,,VISIBLE,COMMON
 
@@ -42,7 +43,7 @@ wisp_magicAchievementsVanillaPack_satbombeverybody,"And Over The Ashes","Saturat
 wisp_magicAchievementsVanillaPack_distresscallreversal,"Call An Ambulance, But Not For Me","Turn around a bogus distress call.",,org.wisp.magicachievements.DistressCallReversalAchievement,,VISIBLE,UNCOMMON
 
 # Rare
-wisp_magicAchievementsVanillaPack_javaupgrade,"BIG DECIMAL","Upgraded the game's Java version.",,org.wisp.magicachievements.JavaUpgradeAchievement,,HIDDEN,RARE
+wisp_magicAchievementsVanillaPack_javaupgrade,"BIG DECIMAL","Upgraded the game's Java version.",,org.wisp.magicachievements.JavaUpgradeAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_paradise,"Paradise","Surveyed a planet with 75% hazard or better.",,org.wisp.magicachievements.ParadiseAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_noconditions,"Unconditional","Surveyed a planet with no conditions.",,org.wisp.magicachievements.NoConditionsAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_powerofthesun,"The Power Of The Sun, In The Palm Of My Hand","Gave one of your colonies extra sunlight.",,org.wisp.magicachievements.PowerOfTheSunAchievement,,VISIBLE,RARE
