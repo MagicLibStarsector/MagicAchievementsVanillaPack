@@ -1,23 +1,25 @@
-id,hullId,name,spriteId,unlockedAutomatically,tags,unlockConditions,description
-# id: Required. The id of the paintjob. Must be unique. Prefix with your mod id.,,,,,,,
-# hullId: Required. The id of the hull that this paintjob applies to. Must be a valid hull id.,,,,,,,
+id,hullIds,name,spriteId,unlockedAutomatically,tags,unlockConditions,description
+# id: Required. The id of the paintjob. Must be unique. Prefix with your mod id. Examples: magiclib_fury_racing, magiclib_onslaught_pirate,,,,,,,
+# hullIds: Required. The ids of the hull that this paintjob applies to. Must contain at least one valid hull id.,,,,,,,
 # name: Required. The name of the paintjob.,,,,,,,
 # spriteId: Required. The path or spriteName of the ship sprite.,,,,,,,
 # unlockedAutomatically: Optional, default true. If true, the paintjob is unlocked by default. Otherwise, it must be manually unlocked using code (e.g. in achievement complete code).,,,
-# tags: Optional, currently unused.,,,,,,
+# tags: Optional.
+#    MagicLib_PermanentPJ: The paintjob is permanent. It cannot be removed or changed by the player.
+#    MagicLib_ShinyPJ: The paintjob will appear in NPC fleets very rarely. It is permanent and **cannot be unlocked by the player**.
 # unlockConditions: Optional, default none. How to unlock the paintjob. Aim for one or two sentences.,,,,,,
 # description: Optional, default none. The description of the paintjob. Aim for one or two sentences.,,,,,,
 ,,,,,,,
 # Example,,,,,,,
-# magiclib_examplePaintjob," ""onslaught""",Oldslaught,graphics/ships/oldslaught.png,false,,Complete the 'Slayer' achievement to unlock.,Original Onslaught sprite. 
+# magiclib_hullid_examplePaintjob," ""onslaught""",Oldslaught,graphics/ships/oldslaught.png,false,,Complete the 'Slayer' achievement to unlock.,Original Onslaught sprite.
 ,,,,,,,
 # Original sprite by MShadowy (the SRA Wisp version has an slightly different sprite by Selkie),,,,,,,
 sra_charybdis_orig,ms_boss_charybdis,Original,graphics/paintjobs/ms_boss_charybdis.png,true,,,
 ,,,,,,,
 ## Thank you BirdWanderer,,,,,,,
-epic_gamer_prometheus,prometheus,Epic Gamer,graphics/paintjobs/epic_gamer_prometheus.png,true,,,
+epic_gamer_prometheus,"prometheus",Epic Gamer,graphics/paintjobs/epic_gamer_prometheus.png,true,,,
 dominator_xiv_bad,dominator_xiv,Faded,graphics/paintjobs/dominator_xiv_bad.png,true,,,
-pink_wolf,wolf,Pink,graphics/paintjobs/pink_wolf.png,true,,,
+pink_wolf,"wolf,wolf_d",Pink,graphics/paintjobs/pink_wolf.png,true,,,
 falcon_phoenix,falcon,Phoenix,graphics/paintjobs/falcon_phoenix.png,false,,"Complete the The Power Of The Sun, In The Palm Of My Hand achievement to unlock.",
 ,,,,,,,
 # Thank you Amazigh,,,,,,,
@@ -32,6 +34,12 @@ cryo_phaeton,phaeton,Cryo,graphics/paintjobs/cryo_phaeton.png,false,,"Complete t
 
 # Thank you Selkie
 champion_gold,champion,Burnt Gold,graphics/paintjobs/champion_gold.png,false,,"Complete the BIG DECIMAL achievement to unlock.",
+conquest_tigerStripes,conquest,Tiger Stripes,graphics/paintjobs/conquest_tigerStripes.png,false,,"Complete the Conquest Adept achievement to unlock.",
+champion_tigerStripes,champion,Tiger Stripes,graphics/paintjobs/champion_tigerStripes.png,false,,"Complete the Champion Adept achievement to unlock.",
+eagle_tigerStripes,eagle,Tiger Stripes,graphics/paintjobs/eagle_tigerStripes.png,false,,"Complete the Eagle Adept achievement to unlock.",
+falcon_tigerStripes,falcon,Tiger Stripes,graphics/paintjobs/falcon_tigerStripes.png,false,,"Complete the Falcon Adept achievement to unlock.",
+hammerhead_tigerStripes,hammerhead,Tiger Stripes,graphics/paintjobs/hammerhead_tigerStripes.png,false,,"Complete the Hammerhead Adept achievement to unlock.",
+sunder_tigerStripes,sunder,Tiger Stripes,graphics/paintjobs/sunder_tigerStripes.png,false,,"Complete the Sunder Adept achievement to unlock.",
 
 # Made by Wisp, so...yeah.
 fury_aquatic,fury,Aquatic,graphics/paintjobs/fury_aquatic.png,false,,"Complete the Pristine Condition achievement to unlock.",

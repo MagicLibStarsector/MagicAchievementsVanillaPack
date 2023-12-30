@@ -41,6 +41,13 @@ wisp_magicAchievementsVanillaPack_gatetravel,"Big Hop","Traveled 60 LY in a sing
 wisp_magicAchievementsVanillaPack_neural,"Assuming Direct Control","Used Neural Link to control an automated ship.",,org.wisp.magicachievements.NeuralAchievement,,VISIBLE,UNCOMMON
 wisp_magicAchievementsVanillaPack_satbombeverybody,"And Over The Ashes","Saturation bombed all vanilla faction homeworlds.",,org.wisp.magicachievements.SatBombEverybodyAchievement,,VISIBLE,UNCOMMON
 wisp_magicAchievementsVanillaPack_distresscallreversal,"Call An Ambulance, But Not For Me","Turn around a bogus distress call.",,org.wisp.magicachievements.DistressCallReversalAchievement,,VISIBLE,UNCOMMON
+### Adept series
+wisp_magicAchievementsVanillaPack_conquest1,"Conquest Adept","Destroy enemies using the Conquest.",,org.wisp.magicachievements.ConquestKillsAchievement,,VISIBLE,UNCOMMON
+wisp_magicAchievementsVanillaPack_champion1,"Champion Adept","Destroy enemies using the Champion.",,org.wisp.magicachievements.ChampionKillsAchievement,,VISIBLE,UNCOMMON
+wisp_magicAchievementsVanillaPack_eagle1,"Eagle Adept","Destroy enemies using the Eagle.",,org.wisp.magicachievements.EagleKillsAchievement,,VISIBLE,UNCOMMON
+wisp_magicAchievementsVanillaPack_falcon1,"Falcon Adept","Destroy enemies using the Falcon.",,org.wisp.magicachievements.FalconKillsAchievement,,VISIBLE,UNCOMMON
+wisp_magicAchievementsVanillaPack_hammerhead1,"Hammerhead Adept","Destroy enemies using the Hammerhead.",,org.wisp.magicachievements.HammerheadKillsAchievement,,VISIBLE,UNCOMMON
+wisp_magicAchievementsVanillaPack_sunder1,"Sunder Adept","Destroy enemies using the Sunder.",,org.wisp.magicachievements.SunderKillsAchievement,,VISIBLE,UNCOMMON
 
 # Rare
 wisp_magicAchievementsVanillaPack_javaupgrade,"BIG DECIMAL","Upgraded the game's Java version.",,org.wisp.magicachievements.JavaUpgradeAchievement,,VISIBLE,RARE
