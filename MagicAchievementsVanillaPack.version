@@ -2,9 +2,9 @@
   "masterVersionFile": "https://raw.githubusercontent.com/MagicLibStarsector/MagicAchievementsVanillaPack/main/MagicAchievementsVanillaPack.version",
   "modName": "Magic Achievements: Vanilla Pack",
 
-  "modThreadId": 0, # eg 8181
+  "modThreadId": 28545,
   "directDownloadURL": "https://github.com/MagicLibStarsector/MagicAchievementsVanillaPack/releases/download/1.1.0/MagicAchievementsVanillaPack.zip",
-  "changelogURL": "https://raw.githubusercontent.com/MagicLibStarsector/MagicAchievementsVanillaPack/main/changelog.txt",
+  "changelogURL": "https://raw.githubusercontent.com/MagicLibStarsector/MagicAchievementsVanillaPack/main/changelog.md",
   "modVersion":
     {
       "major": 1,
