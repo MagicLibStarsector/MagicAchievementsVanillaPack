@@ -30,6 +30,7 @@ wisp_magicAchievementsVanillaPack_revisionist,"Revisionist","Un-lost a battle.",
 wisp_magicAchievementsVanillaPack_builtins,"Pristine Condition","Built in 20 hullmods.",,org.wisp.magicachievements.BuiltInsAchievement,,VISIBLE,COMMON
 wisp_magicAchievementsVanillaPack_abandoned,"Going Out For Milk","Abandoned a colony.",,org.wisp.magicachievements.AbandonedAchievement,,VISIBLE,COMMON
 wisp_magicAchievementsVanillaPack_omegaLost,"Tapped Out","Lost to <ultra redacted>.",,org.wisp.magicachievements.OmegaLostAchievement,,SPOILER,COMMON
+wisp_magicAchievementsVanillaPack_safetiesOff,"Safeties Off","Deployed 10 ships with Safety Overrides in a battle.",,org.wisp.magicachievements.SafetiesOffAchievement,,VISIBLE,UNCOMMON
 # Bounty result isn't public, implementation would be too annoying, would need to copy/paste the bounty code.
 # bounties,"Blood Money","Completed 10 person bounties.",,org.wisp.magicachievements.BountiesAchievement,,VISIBLE,COMMON
 
@@ -41,6 +42,9 @@ wisp_magicAchievementsVanillaPack_gatetravel,"Big Hop","Traveled 60 LY in a sing
 wisp_magicAchievementsVanillaPack_neural,"Assuming Direct Control","Used Neural Link to control an automated ship.",,org.wisp.magicachievements.NeuralAchievement,,VISIBLE,UNCOMMON
 wisp_magicAchievementsVanillaPack_satbombeverybody,"And Over The Ashes","Saturation bombed all vanilla faction homeworlds.",,org.wisp.magicachievements.SatBombEverybodyAchievement,,VISIBLE,UNCOMMON
 wisp_magicAchievementsVanillaPack_distresscallreversal,"Call An Ambulance, But Not For Me","Turn around a bogus distress call.",,org.wisp.magicachievements.DistressCallReversalAchievement,,VISIBLE,UNCOMMON
+wisp_magicAchievementsVanillaPack_safetiesOff,"Safeties Off","Fielded 10 ships with Safety Overrides simultaneously in a battle.",,org.wisp.magicachievements.SafetiesOffAchievement,,VISIBLE,UNCOMMON
+wisp_magicAchievementsVanillaPack_fighterBays,"Not The Bees!","Fielded 30 Fighter Bays simultaneously in a battle.",,org.wisp.magicachievements.FighterBaysAchievement,,VISIBLE,UNCOMMON
+wisp_magicAchievementsVanillaPack_sebestyen,"BFFs","Reached 100 reputation with Sebestyen.",,org.wisp.magicachievements.SebestyenAchievement,,VISIBLE,UNCOMMON
 ### Adept series
 wisp_magicAchievementsVanillaPack_conquest1,"Conquest Adept","Destroy enemies using the Conquest.",,org.wisp.magicachievements.ConquestKillsAchievement,,VISIBLE,UNCOMMON
 wisp_magicAchievementsVanillaPack_champion1,"Champion Adept","Destroy enemies using the Champion.",,org.wisp.magicachievements.ChampionKillsAchievement,,VISIBLE,UNCOMMON
@@ -56,6 +60,7 @@ wisp_magicAchievementsVanillaPack_noconditions,"Unconditional","Surveyed a plane
 wisp_magicAchievementsVanillaPack_powerofthesun,"The Power Of The Sun, In The Palm Of My Hand","Gave one of your colonies extra sunlight.",,org.wisp.magicachievements.PowerOfTheSunAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_motes,"Who You Gonna Call?","Encountered eight different hyperspace ghosts.",,org.wisp.magicachievements.MotesAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_luckystart,"Lucky Start","Found a capital derelict within the first month.",,org.wisp.magicachievements.LuckyStartAchievement,,VISIBLE,RARE
+wisp_magicAchievementsVanillaPack_duel,"Studied The Blade","Won the duel.",,org.wisp.magicachievements.DuelAchievement,,SPOILER,RARE
 # Hard to do intentionally, let alone unintentionally, and hard to detect via code.
 # oriondrive, "Cool Guys Don't Look At Explosions","Destroyed an enemy using the orion drive.",,org.wisp.magicachievements.OrionDriveAchievement,,false,VISIBLE,RARE
 
