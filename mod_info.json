@@ -3,7 +3,7 @@
   "name": "Magic Achievements: Vanilla Pack",
   "author": "Wisp",
   "utility": "true",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A collection of MagicAchievements made for the vanilla game.",
   "gameVersion": "0.96a-RC10",
   "jars": [ "jars/MagicAchievementsVanillaPack.jar" ],
