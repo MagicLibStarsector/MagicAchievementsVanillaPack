@@ -1,3 +1,7 @@
+Version 1.2.3
+
+- Fixed Revisionist not being awarded.
+
 Version 1.2.0
 
 - Added 4 new achievements.

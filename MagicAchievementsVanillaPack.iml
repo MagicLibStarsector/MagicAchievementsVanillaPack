@@ -12,16 +12,14 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="file://$MODULE_DIR$/../GlobalMods/MagicLib/jars" />
+          <root url="file://$MODULE_DIR$/../MagicLib/jars" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="file://$MODULE_DIR$/../GlobalMods/MagicLib/jars" />
-          <root url="file://$MODULE_DIR$/../GlobalMods/MagicLib/src" />
-          <root url="file://$MODULE_DIR$/../GlobalMods/MagicLib/src" />
+          <root url="file://$MODULE_DIR$/../MagicLib/jars" />
         </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/../GlobalMods/MagicLib/jars" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/../GlobalMods/MagicLib/jars" recursive="false" type="SOURCES" />
+        <jarDirectory url="file://$MODULE_DIR$/../MagicLib/jars" recursive="false" />
+        <jarDirectory url="file://$MODULE_DIR$/../MagicLib/jars" recursive="false" type="SOURCES" />
       </library>
     </orderEntry>
   </component>
