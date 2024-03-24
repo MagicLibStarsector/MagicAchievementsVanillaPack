@@ -65,7 +65,7 @@ wisp_magicAchievementsVanillaPack_duel,"Studied The Blade","Won the duel.",,org.
 # oriondrive, "Cool Guys Don't Look At Explosions","Destroyed an enemy using the orion drive.",,org.wisp.magicachievements.OrionDriveAchievement,,false,VISIBLE,RARE
 
 # Epic
-wisp_magicAchievementsVanillaPack_fleetdoctrine,"What Is 'Fleet Doctrine'?","Deployed ships of every vanilla design type in a single battle.",,org.wisp.magicachievements.FleetDoctrineAchievement,,VISIBLE,EPIC
+wisp_magicAchievementsVanillaPack_fleetdoctrine,"What Is 'Fleet Doctrine'?","Deployed ships of (almost) every vanilla design type in a single battle.",,org.wisp.magicachievements.FleetDoctrineAchievement,,VISIBLE,EPIC
 wisp_magicAchievementsVanillaPack_omegaLowDp,"I Am The Alpha","Defeated <ultra redacted> using a maximum of 80 deployment points.",,org.wisp.magicachievements.OmegaLowDpAchievement,,VISIBLE,EPIC
 wisp_magicAchievementsVanillaPack_colonyitems,"Behold! My Stuff.","Installed every colony item.",,org.wisp.magicachievements.ColonyItemsAchievement,,VISIBLE,EPIC
 

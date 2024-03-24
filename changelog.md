@@ -1,3 +1,7 @@
+Version 1.2.4
+
+- "What Is Fleet Doctrine" no longer requires design types added to vanilla factions by mods (reported by Histidine).
+
 Version 1.2.3
 
 - Fixed Revisionist not being awarded.
