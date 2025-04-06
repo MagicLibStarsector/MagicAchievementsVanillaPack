@@ -3,16 +3,18 @@
   "name": "Magic Achievements: Vanilla Pack",
   "author": "Wisp",
   "utility": "true",
-  "version": "1.2.3",
+  "version": "1.2.5",
   "description": "A collection of MagicAchievements made for the vanilla game.",
-  "gameVersion": "0.97a-RC11",
-  "jars": [ "jars/MagicAchievementsVanillaPack.jar" ],
+  "gameVersion": "0.98a-RC7",
+  "jars": [
+    "jars/MagicAchievementsVanillaPack.jar"
+  ],
   "modPlugin": "org.wisp.magicachievements.MagicAchievementsVanillaPackModPlugin",
   "dependencies": [
     {
       "id": "MagicLib",
-      "name": "MagicLib",
-      "version": "1.4.0"
-    },
+      "name": "MagicLib"
+    }
   ],
+  "originalGameVersion": "0.97a-RC11"
 }

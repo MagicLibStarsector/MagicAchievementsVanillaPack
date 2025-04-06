@@ -33,7 +33,7 @@ hammerhead_acidTrip,hammerhead,Trip,graphics/paintjobs/hammerhead_acidTrip.png,f
 cryo_phaeton,phaeton,Cryo,graphics/paintjobs/cryo_phaeton.png,false,,"Complete the You're Coming With Me achievement to unlock.",
 
 # Thank you Selkie
-champion_gold,champion,Burnt Gold,graphics/paintjobs/champion_gold.png,false,,"Complete the BIG DECIMAL achievement to unlock.",
+champion_gold,champion,Burnt Gold,graphics/paintjobs/champion_gold.png,true,,,
 conquest_tigerStripes,conquest,Tiger Stripes,graphics/paintjobs/conquest_tigerStripes.png,false,,"Complete the Conquest Adept achievement to unlock.",
 champion_tigerStripes,champion,Tiger Stripes,graphics/paintjobs/champion_tigerStripes.png,false,,"Complete the Champion Adept achievement to unlock.",
 eagle_tigerStripes,eagle,Tiger Stripes,graphics/paintjobs/eagle_tigerStripes.png,false,,"Complete the Eagle Adept achievement to unlock.",

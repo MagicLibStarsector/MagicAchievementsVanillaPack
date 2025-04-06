@@ -9,6 +9,9 @@ import com.fs.starfarer.api.campaign.listeners.ColonyPlayerHostileActListener;
 import com.fs.starfarer.api.impl.campaign.rulecmd.salvage.MarketCMD;
 import org.magiclib.achievements.MagicAchievement;
 
+/**
+ * Saturation bombarded an inhabited planet.
+ */
 public class BombardmentAchievement extends MagicAchievement implements ColonyPlayerHostileActListener {
 
     @Override
