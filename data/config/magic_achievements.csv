@@ -54,7 +54,6 @@ wisp_magicAchievementsVanillaPack_hammerhead1,"Hammerhead Adept","Destroy enemie
 wisp_magicAchievementsVanillaPack_sunder1,"Sunder Adept","Destroy enemies using the Sunder.",,org.wisp.magicachievements.SunderKillsAchievement,,VISIBLE,UNCOMMON
 
 # Rare
-wisp_magicAchievementsVanillaPack_javaupgrade,"BIG DECIMAL","Upgraded the game's Java version.",,org.wisp.magicachievements.JavaUpgradeAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_paradise,"Paradise","Surveyed a planet with 75% hazard or better.",,org.wisp.magicachievements.ParadiseAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_noconditions,"Unconditional","Surveyed a planet with no conditions.",,org.wisp.magicachievements.NoConditionsAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_powerofthesun,"The Power Of The Sun, In The Palm Of My Hand","Gave one of your colonies extra sunlight.",,org.wisp.magicachievements.PowerOfTheSunAchievement,,VISIBLE,RARE

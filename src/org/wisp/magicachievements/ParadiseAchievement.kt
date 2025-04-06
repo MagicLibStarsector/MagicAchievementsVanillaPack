@@ -5,6 +5,9 @@ import com.fs.starfarer.api.campaign.PlanetAPI
 import com.fs.starfarer.api.campaign.listeners.SurveyPlanetListener
 import org.magiclib.achievements.MagicAchievement
 
+/**
+ * Surveyed a planet with 75% hazard or better
+ */
 class ParadiseAchievement : MagicAchievement(), SurveyPlanetListener {
     override fun onSaveGameLoaded(isComplete: Boolean) {
         super.onSaveGameLoaded(isComplete)

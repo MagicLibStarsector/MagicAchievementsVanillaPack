@@ -1,3 +1,8 @@
+Version 1.2.5
+- Updated to 0.98a.
+- Removed achievement for upgrading Java version, now that Java 17 is default.
+  - Burnt Gold Champion paintjob is now unlocked by default.
+
 Version 1.2.4
 
 - "What Is Fleet Doctrine" no longer requires design types added to vanilla factions by mods (reported by Histidine).

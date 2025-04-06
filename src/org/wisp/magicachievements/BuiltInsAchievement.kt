@@ -6,6 +6,9 @@ import com.fs.starfarer.api.impl.campaign.plog.PlaythroughLog
 import org.magiclib.achievements.MagicAchievement
 import org.magiclib.paintjobs.MagicPaintjobManager
 
+/**
+ * Built in 20 hullmods.
+ */
 class BuiltInsAchievement : MagicAchievement() {
     private val key = "magiclib_builtInsAchievement_playerBuiltSmods"
     private val numberNeeded = 20
