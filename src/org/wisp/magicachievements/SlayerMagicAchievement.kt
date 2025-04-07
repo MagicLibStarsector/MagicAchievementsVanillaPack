@@ -10,9 +10,9 @@ import kotlin.math.roundToInt
 
 abstract class SlayerMagicAchievement : MagicAchievement() {
     var shipsKilled: Int
-        get() = memory["shipsKilled"] as? Int ?: 0
+        get() = achievementMemory["shipsKilled"] as? Int ?: 0
         set(value) {
-            memory["shipsKilled"] = value
+            achievementMemory["shipsKilled"] = value
         }
 
     var listener: Listener? = null

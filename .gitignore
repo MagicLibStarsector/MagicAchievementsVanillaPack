@@ -192,3 +192,5 @@ nbdist/
 .idea/vcs.xml
 
 .idea/csv-editor.xml
+
+.idea/csv-plugin.xml

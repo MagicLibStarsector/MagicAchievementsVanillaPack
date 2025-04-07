@@ -7,8 +7,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="starfarer.api" level="project" />
-    <orderEntry type="library" name="Kotlin-Runtime" level="application" />
     <orderEntry type="module-library">
       <library>
         <CLASSES>
@@ -20,6 +18,44 @@
         </SOURCES>
         <jarDirectory url="file://$MODULE_DIR$/../MagicLib/jars" recursive="false" />
         <jarDirectory url="file://$MODULE_DIR$/../MagicLib/jars" recursive="false" type="SOURCES" />
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="starsector">
+        <CLASSES>
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/commons-compiler.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/commons-compiler-jdk.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/fs.common_obf.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/fs.sound_obf.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/janino.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/jaxb-api-2.4.0-b180830.0359.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/jinput.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/jogg-0.0.7.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/jorbis-0.0.15.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/json.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/log4j-1.2.9.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/lwjgl.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/lwjgl_util.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/starfarer.api.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/starfarer_obf.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/txw2-3.0.2.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/webp-imageio-0.1.6.jar!/" />
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/xstream-1.4.10.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98a-RC5/starsector-core/jaxb-api-2.4.0-b180830.0359-sources.jar!/" />
+          <root url="file://$MODULE_DIR$/../CommunityApiDocs/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$STARSECTOR_INSTALL_DIR$/mods/LazyLib-3.0.0/jars/internal/Kotlin-Runtime.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
       </library>
     </orderEntry>
   </component>
