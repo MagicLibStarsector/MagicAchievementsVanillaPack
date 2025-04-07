@@ -37,7 +37,7 @@ class BuiltInsAchievement : MagicAchievement() {
                     (existing[createId(shipId)] ?: mutableSetOf()).apply { addAll(smodIds.flatten()) }
             }
 
-        memory[key] = existing
+        achievementMemory[key] = existing
 
         // If the count didn't change, no reason to continue further.
         if (existing.values.flatten().size == countBeforeChange) {
@@ -51,7 +51,7 @@ class BuiltInsAchievement : MagicAchievement() {
     }
 
     private fun builtInsInstalled(): MutableMap<String, MutableSet<String>> =
-        (memory[key] as? MutableMap<String, MutableSet<String>>?) ?: mutableMapOf()
+        (achievementMemory[key] as? MutableMap<String, MutableSet<String>>?) ?: mutableMapOf()
 
     private fun createId(shipId: String) = "${Global.getSector().playerPerson.id}-$shipId"
 

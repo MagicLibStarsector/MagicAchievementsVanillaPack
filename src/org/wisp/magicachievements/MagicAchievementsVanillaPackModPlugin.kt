@@ -2,8 +2,6 @@ package org.wisp.magicachievements
 
 import com.fs.starfarer.api.BaseModPlugin
 import org.magiclib.achievements.MagicAchievementManager
-import org.magiclib.paintjobs.MagicPaintjobManager
-import org.magiclib.paintjobs.MagicPaintjobSpec
 
 class MagicAchievementsVanillaPackModPlugin : BaseModPlugin() {
     val modId = "wisp_magicAchievementsVanillaPack"

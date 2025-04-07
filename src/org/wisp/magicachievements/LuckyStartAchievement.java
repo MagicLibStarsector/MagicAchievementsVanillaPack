@@ -31,8 +31,7 @@ public class LuckyStartAchievement extends MagicAchievement implements DiscoverE
     @Override
     public void reportEntityDiscovered(SectorEntityToken entity) {
         if (MagicMisc.getElapsedDaysSinceGameStart() <= days) {
-            if (entity instanceof CampaignFleetAPI) {
-                CampaignFleetAPI fleet = (CampaignFleetAPI) entity;
+            if (entity instanceof CampaignFleetAPI fleet) {
 
                 if (!fleet.getFaction().getId().equals(Factions.DERELICT)) {
                     for (FleetMemberAPI member : fleet.getMembersWithFightersCopy()) {
