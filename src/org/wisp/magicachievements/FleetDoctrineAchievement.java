@@ -7,7 +7,6 @@ import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.util.Misc;
 import org.magiclib.achievements.MagicAchievement;
-import org.magiclib.util.MagicTxt;
 
 import java.util.ArrayList;
 import java.util.HashSet;
