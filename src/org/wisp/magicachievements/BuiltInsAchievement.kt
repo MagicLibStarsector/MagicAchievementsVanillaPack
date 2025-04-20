@@ -31,9 +31,10 @@ class BuiltInsAchievement : MagicAchievement() {
         val countBeforeChange = existing.values.flatten().size
 
         PlaythroughLog.getInstance().sModsInstalled
-            .groupBy({ it.member.id }, { it.sMods })
+            .groupBy({ it.member?.id }, { it.sMods })
+            .filterKeys { it != null }
             .forEach { (shipId, smodIds) ->
-                existing[createId(shipId)] =
+                existing[createId(shipId!!)] =
                     (existing[createId(shipId)] ?: mutableSetOf()).apply { addAll(smodIds.flatten()) }
             }
 

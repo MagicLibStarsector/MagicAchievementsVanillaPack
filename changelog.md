@@ -1,3 +1,6 @@
+Version 1.2.6
+- Fixed Pristine Condition erroring out.
+
 Version 1.2.5
 - Updated to 0.98a.
 - Removed achievement for upgrading Java version, now that Java 17 is default.
