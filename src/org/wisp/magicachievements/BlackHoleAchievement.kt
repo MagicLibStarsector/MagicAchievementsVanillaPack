@@ -4,42 +4,34 @@ import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.PluginPick
 import com.fs.starfarer.api.campaign.BaseCampaignPlugin
 import com.fs.starfarer.api.campaign.InteractionDialogPlugin
-import org.magiclib.achievements.MagicAchievement
-import org.magiclib.kotlin.getDistance
+import com.fs.starfarer.api.util.Misc
 
-class BlackHoleAchievement : MagicAchievement() {
-    internal var plugin: Plugin? = null
-
-    internal inner class Plugin : BaseCampaignPlugin() {
-        override fun getId(): String = "magiclib_black_hole_achievement"
+/**
+ * Died in a black hole.
+ */
+class BlackHoleAchievement : VanillaPackAchievement() {
+    // BaseCampaignPlugin is transient, so this never goes into the save.
+    private val plugin = object : BaseCampaignPlugin() {
+        override fun getId() = "magiclib_black_hole_achievement"
 
         override fun pickRespawnPlugin(): PluginPick<InteractionDialogPlugin>? {
-            if (Global.getSector().playerFleet.containingLocation == Global.getSector().hyperspace)
-                return null
-
-            Global.getSector().starSystems
-                .flatMap { it.planets }
-                .filter { it.isStar && it.spec.isBlackHole }
-                .forEach { hole ->
-                    // player fleet inside black hole
-                    if (hole.location.getDistance(Global.getSector().playerFleet.location) < hole.radius) {
-                        completeAchievement()
-                        return null
-                    }
-                }
-
+            val fleet = Global.getSector().playerFleet
+            val insideBlackHole = fleet?.containingLocation?.planets.orEmpty()
+                .any { it.isStar && it.spec.isBlackHole && Misc.getDistance(it, fleet) < it.radius }
+            if (insideBlackHole) completeAchievement()
             return null
         }
     }
 
     override fun onSaveGameLoaded(isComplete: Boolean) {
-        if (isComplete) return
-
-        plugin = Plugin()
-        Global.getSector().registerPlugin(plugin)
+        super.onSaveGameLoaded(isComplete)
+        if (!isComplete) Global.getSector().registerPlugin(plugin)
     }
 
+    // Not unregistered on completion: that happens inside pickRespawnPlugin, while the game loops over its plugin list,
+    // and changing the list there crashes the game (ConcurrentModificationException). Once complete it does nothing.
     override fun onDestroyed() {
-        Global.getSector().unregisterPlugin(plugin?.id)
+        super.onDestroyed()
+        Global.getSector()?.unregisterPlugin(plugin.id)
     }
 }

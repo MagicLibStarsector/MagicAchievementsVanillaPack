@@ -1,28 +1,14 @@
 package org.wisp.magicachievements
 
-import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.PlanetAPI
 import com.fs.starfarer.api.campaign.listeners.SurveyPlanetListener
-import org.magiclib.achievements.MagicAchievement
 
 /**
- * Surveyed a planet with 75% hazard or better
+ * Surveyed a planet with 75% hazard or better.
  */
-class ParadiseAchievement : MagicAchievement(), SurveyPlanetListener {
-    override fun onSaveGameLoaded(isComplete: Boolean) {
-        super.onSaveGameLoaded(isComplete)
-        if (isComplete) return
-        Global.getSector().listenerManager.addListener(this, true)
-    }
-
-    override fun onDestroyed() {
-        super.onDestroyed()
-        Global.getSector().listenerManager.removeListener(this)
-    }
-
+class ParadiseAchievement : ListenerAchievement(), SurveyPlanetListener {
     override fun reportPlayerSurveyedPlanet(planet: PlanetAPI?) {
-        if ((planet?.market?.hazardValue ?: 0f) <= 0.75f) {
-            completeAchievement()
-        }
+        val hazard = planet?.market?.hazardValue ?: return
+        if (hazard <= 0.75f) completeAchievement()
     }
 }

@@ -1,69 +1,46 @@
 package org.wisp.magicachievements;
 
 import com.fs.starfarer.api.Global;
-import com.fs.starfarer.api.combat.CombatEngineAPI;
 import com.fs.starfarer.api.combat.DeployedFleetMemberAPI;
 import com.fs.starfarer.api.input.InputEventAPI;
 import com.fs.starfarer.api.mission.FleetSide;
 import com.fs.starfarer.api.util.Misc;
 import org.magiclib.achievements.MagicAchievement;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * Deployed ships of (almost) every vanilla design type in one battle.
+ */
 public class FleetDoctrineAchievement extends MagicAchievement {
-    private final Set<String> allTechTypes = new HashSet<>();
-
-
-    @Override
-    public void onSaveGameLoaded(boolean isComplete) {
-        super.onSaveGameLoaded(isComplete);
-        // Filled even when complete so the tooltip shows the list.
-        allTechTypes.clear();
-
-        // Grab column from ship_hulls.csv and then search skins folder for "TECH", paste into VS Code, wrangle.
-        allTechTypes.add("Hegemony");
-        allTechTypes.add("High Tech");
-        allTechTypes.add("Lion's Guard");
-        allTechTypes.add("Low Tech");
-        allTechTypes.add("Luddic Church");
-        allTechTypes.add("Luddic Path");
-        allTechTypes.add("Midline");
-        allTechTypes.add("Pirate");
-        allTechTypes.add("Remnant");
-        allTechTypes.add("Tri-Tachyon");
-        allTechTypes.add("XIV Battlegroup");
-    }
+    // The design types (manufacturers) in ship_hulls.csv and the hull skins.
+    private static final List<String> DESIGN_TYPES = List.of(
+            "Hegemony", "High Tech", "Lion's Guard", "Low Tech", "Luddic Church", "Luddic Path", "Midline", "Pirate",
+            "Remnant", "Tri-Tachyon", "XIV Battlegroup");
 
     @Override
     public void advanceInCombat(float amount, List<InputEventAPI> events, boolean isSimulation) {
-        if (isSimulation || isComplete()) return;
-        if (allTechTypes.isEmpty()) return;
-        CombatEngineAPI combatEngine = Global.getCombatEngine();
+        if (isSimulation) return;
 
-        Set<String> techTypesDeployed = new HashSet<>();
+        Set<String> deployedTypes = new HashSet<>();
 
-        for (DeployedFleetMemberAPI ship : combatEngine.getFleetManager(FleetSide.PLAYER).getAllEverDeployedCopy()) {
+        for (DeployedFleetMemberAPI ship : Global.getCombatEngine().getFleetManager(FleetSide.PLAYER).getAllEverDeployedCopy()) {
             // Skip allied ships.
             if (ship.getMember().isAlly())
                 continue;
 
-            techTypesDeployed.add(ship.getMember().getHullSpec().getManufacturer());
+            deployedTypes.add(ship.getMember().getHullSpec().getManufacturer());
         }
 
-        for (String reqType : allTechTypes) {
-            if (!techTypesDeployed.contains(reqType)) {
-                return;
-            }
+        if (deployedTypes.containsAll(DESIGN_TYPES)) {
+            completeAchievement();
         }
-
-        completeAchievement();
     }
 
     @Override
     public String getTooltip() {
-        return Misc.getJoined("and", new ArrayList<>(allTechTypes)) + ".";
+        return Misc.getJoined("and", DESIGN_TYPES) + ".";
     }
 }

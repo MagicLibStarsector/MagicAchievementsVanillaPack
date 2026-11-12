@@ -8,19 +8,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/../MagicLib/jars" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/../MagicLib/jars" />
-        </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/../MagicLib/jars" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/../MagicLib/jars" recursive="false" type="SOURCES" />
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
       <library name="starsector">
         <CLASSES>
           <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98.5a-RC4/starsector-core/commons-compiler.jar!/" />
@@ -46,6 +33,18 @@
         <SOURCES>
           <root url="jar://C:/Program Files (x86)/Fractal Softworks/Starsector-0.98.5a-RC4/starsector-core/jaxb-api-2.4.0-b180830.0359-sources.jar!/" />
           <root url="file://$MODULE_DIR$/../CommunityApiDocs/src" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/../MagicLib/jars/MagicLib.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$MODULE_DIR$/../MagicLib/jars/MagicLib.jar!/" />
+          <root url="jar://$MODULE_DIR$/../MagicLib/jars/MagicLib.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>

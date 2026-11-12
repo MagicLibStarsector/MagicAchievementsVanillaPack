@@ -63,21 +63,9 @@ internal class OldEarthAchievementSpec : MagicAchievementSpec(
     rarity = MagicAchievementRarity.Legendary
 )
 
-internal class OldEarthAchievement : MagicAchievement(), SurveyPlanetListener {
-    override fun onSaveGameLoaded(isComplete: Boolean) {
-        super.onSaveGameLoaded(isComplete)
-        if (isComplete) return
-        Global.getSector().listenerManager.addListener(this, true)
-    }
-
-    override fun onDestroyed() {
-        super.onDestroyed()
-        Global.getSector().listenerManager.removeListener(this)
-    }
-
+internal class OldEarthAchievement : ListenerAchievement(), SurveyPlanetListener {
     override fun reportPlayerSurveyedPlanet(planet: PlanetAPI?) {
-        if ((planet?.market?.hazardValue ?: 0f) <= 0.50f) {
-            completeAchievement()
-        }
+        val hazard = planet?.market?.hazardValue ?: return
+        if (hazard <= 0.50f) completeAchievement()
     }
 }

@@ -1,6 +1,5 @@
 package org.wisp.magicachievements
 
-import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.impl.campaign.ghosts.SensorGhostManager
 import com.fs.starfarer.api.impl.campaign.ghosts.types.*
 import org.magiclib.achievements.MagicTargetListAchievement
@@ -36,17 +35,12 @@ class MotesAchievement : MagicTargetListAchievement() {
 
     override fun advanceAfterInterval(amount: Float) {
         super.advanceAfterInterval(amount)
-        if (Global.getSector().playerFleet == null) return
 
-        val motesSeen = targets.filter { it.value.isComplete }.keys
-
-        SensorGhostManager.getGhostManager().ghosts
+        val seen = targets.filterValues { it.isComplete }.keys
+        SensorGhostManager.getGhostManager()?.ghosts.orEmpty()
             .map { it.javaClass.simpleName }
-            .forEach { newMoteSeen ->
-                if (newMoteSeen !in motesSeen) {
-                    setTargetComplete(newMoteSeen)
-                }
-            }
+            .filter { it !in seen }
+            .forEach { setTargetComplete(it) }
     }
 
     // Only need to see 8, not all possible ones, so override [MagicTargetListAchievement] logic.

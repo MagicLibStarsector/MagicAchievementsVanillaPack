@@ -1,65 +1,42 @@
 package org.wisp.magicachievements
 
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.characters.PersonAPI
 import com.fs.starfarer.api.impl.campaign.plog.PlaythroughLog
-import org.magiclib.achievements.MagicAchievement
-import org.magiclib.paintjobs.MagicPaintjobManager
+import org.json.JSONArray
+import org.magiclib.kotlin.toStringList
 
 /**
- * Built in 20 hullmods.
+ * Built in 20 hullmods, counted across all saves. Each hullmod counts once per ship and player character.
  */
-class BuiltInsAchievement : MagicAchievement() {
-    private val key = "magiclib_builtInsAchievement_playerBuiltSmods"
+class BuiltInsAchievement : VanillaPackAchievement(paintjobRewards = listOf("fury_aquatic")) {
+    // A flat list of "<player id>-<ship id>-<hullmod id>". MagicLib stores memory as JSON, so a list comes back as a
+    // JSONArray after a load. (The old key held a map, which came back as a JSONObject and was never read again.)
+    private val key = "magiclib_builtInsAchievement_builtInIds"
     private val numberNeeded = 20
-    override fun onSaveGameLoaded(isComplete: Boolean) {
-        if (isComplete) {
-            onCompleted(null)
-            return
-        }
-    }
-
-    override fun onCompleted(completedByPlayer: PersonAPI?) {
-        MagicPaintjobManager.unlockPaintjob("fury_aquatic")
-    }
 
     override fun advanceAfterInterval(amount: Float) {
         super.advanceAfterInterval(amount)
 
-        val existing: MutableMap<String, MutableSet<String>> =
-            builtInsInstalled()
-        val countBeforeChange = existing.values.flatten().size
-
-        PlaythroughLog.getInstance().sModsInstalled
-            .groupBy({ it.member?.id }, { it.sMods })
-            .filterKeys { it != null }
-            .forEach { (shipId, smodIds) ->
-                existing[createId(shipId!!)] =
-                    (existing[createId(shipId)] ?: mutableSetOf()).apply { addAll(smodIds.flatten()) }
-            }
-
-        achievementMemory[key] = existing
-
-        // If the count didn't change, no reason to continue further.
-        if (existing.values.flatten().size == countBeforeChange) {
-            return
+        val builtIns = builtInsInstalled()
+        val countBefore = builtIns.size
+        val playerId = Global.getSector().playerPerson.id
+        for (record in PlaythroughLog.getInstance().sModsInstalled) {
+            val shipId = record.member?.id ?: continue
+            record.sMods.forEach { builtIns += "$playerId-$shipId-$it" }
         }
+        if (builtIns.size == countBefore) return
 
-
-        if (existing.values.flatten().size >= numberNeeded) {
-            completeAchievement()
-        }
-
+        achievementMemory[key] = builtIns.toList()
+        if (builtIns.size >= numberNeeded) completeAchievement()
     }
 
-    private fun builtInsInstalled(): MutableMap<String, MutableSet<String>> =
-        (achievementMemory[key] as? MutableMap<String, MutableSet<String>>?) ?: mutableMapOf()
-
-    private fun createId(shipId: String) = "${Global.getSector().playerPerson.id}-$shipId"
+    private fun builtInsInstalled(): MutableSet<String> = when (val stored = achievementMemory[key]) {
+        is JSONArray -> stored.toStringList().toMutableSet()
+        is Collection<*> -> stored.filterIsInstance<String>().toMutableSet()
+        else -> mutableSetOf()
+    }
 
     override fun getHasProgressBar() = true
-
     override fun getMaxProgress() = numberNeeded.toFloat()
-
-    override fun getProgress() = builtInsInstalled().values.flatten().size.toFloat()
+    override fun getProgress() = builtInsInstalled().size.toFloat()
 }

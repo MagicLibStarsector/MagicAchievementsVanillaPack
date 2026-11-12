@@ -1,13 +1,10 @@
 package org.wisp.magicachievements;
 
-import com.fs.starfarer.api.GameState;
 import com.fs.starfarer.api.Global;
+import com.fs.starfarer.api.campaign.CampaignFleetAPI;
 import com.fs.starfarer.api.campaign.PlanetAPI;
-import org.lwjgl.util.vector.Vector2f;
+import com.fs.starfarer.api.util.Misc;
 import org.magiclib.achievements.MagicAchievement;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Flew into a sun.
@@ -15,24 +12,11 @@ import java.util.List;
 public class IcarusAchievement extends MagicAchievement {
     @Override
     public void advanceAfterInterval(float amount) {
-        if (Global.getSector() == null
-                || Global.getCurrentState() != GameState.CAMPAIGN
-                || Global.getSector().getCurrentLocation() == Global.getSector().getHyperspace()
-        ) return;
+        CampaignFleetAPI playerFleet = Global.getSector().getPlayerFleet();
 
-        List<PlanetAPI> stars = new ArrayList<>();
-
-        for (PlanetAPI planet : Global.getSector().getPlayerFleet().getContainingLocation().getPlanets()) {
-            if (planet.isNormalStar()) {
-                stars.add(planet);
-            }
-        }
-
-        Vector2f playerLocation = Global.getSector().getPlayerFleet().getLocation();
-
-        // Check if player is inside a system star's radius.
-        for (PlanetAPI star : stars) {
-            if (star.getRadius() > Vector2f.sub(playerLocation, star.getLocation(), null).length()) {
+        // Check if the player is inside a star's radius.
+        for (PlanetAPI planet : playerFleet.getContainingLocation().getPlanets()) {
+            if (planet.isNormalStar() && Misc.getDistance(planet, playerFleet) < planet.getRadius()) {
                 completeAchievement();
                 return;
             }

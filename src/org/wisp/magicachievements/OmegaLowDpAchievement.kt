@@ -1,62 +1,20 @@
 package org.wisp.magicachievements
 
-import com.fs.starfarer.api.Global
 import com.fs.starfarer.api.campaign.BaseCampaignEventListener
 import com.fs.starfarer.api.combat.EngagementResultAPI
-import com.fs.starfarer.api.impl.campaign.ids.Entities
-import com.fs.starfarer.api.impl.campaign.ids.Factions
-import org.magiclib.achievements.MagicAchievement
 
 /**
  * Defeated <ultra redacted> using a maximum of 80 deployment points.
  */
-class OmegaLowDpAchievement : MagicAchievement() {
-    private var listener: OmegaLowDpAchievementListener? = null
-
-    inner class OmegaLowDpAchievementListener : BaseCampaignEventListener(false) {
+class OmegaLowDpAchievement : CampaignEventAchievement() {
+    override fun createListener() = object : BaseCampaignEventListener(false) {
         override fun reportPlayerEngagement(result: EngagementResultAPI?) {
-            super.reportPlayerEngagement(result)
-            result ?: return
+            if (result == null || !result.didPlayerWin() || result.loserResult?.isOmegaAtCoronalTap() != true) return
+            // Null when the battle was autoresolved. Without it the deployment points are unknown, so it doesn't count.
+            val playerShips = result.winnerResult?.allEverDeployedCopy ?: return
 
-            try {
-                if (result.didPlayerWin()) {
-                    // Check that there's a coronal tap in the system
-                    if (Global.getSector().playerFleet.containingLocation?.allEntities?.any { it.hasTag(Entities.CORONAL_TAP) } != true)
-                        return
-
-                    // Check that player fought two Omega cruisers (or capitals, in case a mod replaces the cruisers with capitals for some reason)
-                    if (result.loserResult.allEverDeployedCopy.map { it.member }
-                            .count { (it.isCruiser || it.isCapital) && it.fleetData.fleet.faction.id == Factions.OMEGA } < 2)
-                        return
-
-                    // get deployment points used by player
-                    val playerDeployedAmount =
-                        result.winnerResult.allEverDeployedCopy.sumOf {
-                            (it.member?.deploymentPointsCost ?: 0f).toDouble()
-                        }
-
-                    if (playerDeployedAmount <= 80) {
-                        completeAchievement()
-                        onDestroyed()
-                    }
-                }
-            } catch (e: Exception) {
-                logger.warn(e.message, e)
-            }
+            val playerDeploymentPoints = playerShips.sumOf { (it.member?.deploymentPointsCost ?: 0f).toDouble() }
+            if (playerDeploymentPoints <= 80) completeAchievement()
         }
-    }
-
-    override fun onSaveGameLoaded(isComplete: Boolean) {
-        super.onSaveGameLoaded(isComplete)
-        if (isComplete) return
-        // Kept so onDestroyed can remove it. removeTransientScriptsOfClass removes scripts, not listeners.
-        listener?.let { Global.getSector().removeListener(it) }
-        listener = OmegaLowDpAchievementListener().also { Global.getSector().addTransientListener(it) }
-    }
-
-    override fun onDestroyed() {
-        super.onDestroyed()
-        listener?.let { Global.getSector().removeListener(it) }
-        listener = null
     }
 }

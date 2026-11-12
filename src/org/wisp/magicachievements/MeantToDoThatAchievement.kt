@@ -1,91 +1,35 @@
 package org.wisp.magicachievements
 
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.characters.PersonAPI
 import com.fs.starfarer.api.combat.CombatEntityAPI
 import com.fs.starfarer.api.combat.ShipAPI
 import com.fs.starfarer.api.combat.listeners.ApplyDamageResultAPI
 import com.fs.starfarer.api.combat.listeners.DamageListener
 import com.fs.starfarer.api.input.InputEventAPI
-import org.magiclib.achievements.MagicAchievement
-import org.magiclib.paintjobs.MagicPaintjobManager
 
-class MeantToDoThatAchievement : MagicAchievement() {
-    private val _shipIdToListener: MutableMap<String, DamageDetectorListener> = mutableMapOf()
-
-    override fun advanceInCombat(
-        amount: Float,
-        events: MutableList<InputEventAPI>?,
-        isSimulation: Boolean
-    ) {
-        if (isComplete || isSimulation) return
-
-        val ships = Global.getCombatEngine().ships
-        applyShipListeners(ships)
-    }
-
-    internal inner class DamageDetectorListener : DamageListener {
+/**
+ * Destroyed an enemy ship with your own ship's explosion: hull damage from the dead player ship kills its target.
+ */
+class MeantToDoThatAchievement : VanillaPackAchievement(paintjobRewards = listOf("cryo_phaeton")) {
+    // A ship's DamageListener hears damage dealt to that ship, so every ship gets this one listener.
+    private val damageListener = object : DamageListener {
         override fun reportDamageApplied(source: Any?, target: CombatEntityAPI?, result: ApplyDamageResultAPI?) {
-            val combatEngine = Global.getCombatEngine()
+            if (Global.getSettings().isDevMode || result == null || result.isDps || result.damageToHull <= 0f) return
+            if (target !is ShipAPI || source !is ShipAPI || source != Global.getCombatEngine().playerShip) return
+            if (target.isAlive || source.isAlive) return
 
-            if (Global.getSettings().isDevMode || source == null || result == null) {
-                return
-            }
-
-            if (target !is ShipAPI || source !is ShipAPI || source.id != combatEngine.playerShip.id) {
-                return
-            }
-
-            if (result.damageToHull <= 0f || target.isAlive || source.isAlive) {
-                return
-            }
-
-            if (result.isDps) {
-                return
-            }
-
-            // Always seems to be high explosive type, but just in case, allow any damage type.
-
-            Global.getLogger(MeantToDoThatAchievement::class.java)
-                .info("Damage (${result.damageToHull} ${result.type.name} to hull) applied to ${target.id} by ${source.id}, with both dead.")
+            logger.info("Damage (${result.damageToHull} ${result.type.name} to hull) applied to ${target.id} by ${source.id}, with both dead.")
             completeAchievement()
-
-            for (ship in Global.getCombatEngine().ships) {
-                ship.removeListenerOfClass(DamageDetectorListener::class.java)
-            }
+            Global.getCombatEngine().ships.forEach { it.removeListener(this) }
         }
     }
 
-    override fun onSaveGameLoaded(isComplete: Boolean) {
-        super.onSaveGameLoaded(isComplete)
-        if (isComplete) {
-            // If the achievement is complete but the paintjobs are not unlocked, unlock them.
-            onCompleted(null)
-            return
-        }
-    }
+    override fun advanceInCombat(amount: Float, events: List<InputEventAPI>, isSimulation: Boolean) {
+        super.advanceInCombat(amount, events, isSimulation)
+        if (isSimulation) return
 
-    override fun onCompleted(completedByPlayer: PersonAPI?) {
-        super.onCompleted(completedByPlayer)
-        MagicPaintjobManager.unlockPaintjob("cryo_phaeton")
-    }
-
-    private fun applyShipListeners(ships: List<ShipAPI>) {
-        // ensure all alive ships have a listener to watch for damage
-        for (ship in ships) {
-            if (!ship.isAlive) {
-                // Remove listener if ship is dead.
-                if (_shipIdToListener.containsKey(ship.id)) {
-                    ship.removeListenerOfClass(DamageDetectorListener::class.java)
-                    _shipIdToListener.remove(ship.id)
-                }
-            } else if (!_shipIdToListener.containsKey(ship.id)) {
-                // Add listener if ship is alive and doesn't have one.
-                ship.removeListenerOfClass(DamageDetectorListener::class.java)
-                val listener = DamageDetectorListener()
-                ship.addListener(listener)
-                _shipIdToListener[ship.id] = listener
-            }
+        for (ship in Global.getCombatEngine().ships) {
+            if (ship.isAlive && !ship.hasListener(damageListener)) ship.addListener(damageListener)
         }
     }
 }

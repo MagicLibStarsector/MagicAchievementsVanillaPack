@@ -34,35 +34,14 @@ class ColonyItemsAchievement : MagicTargetListAchievement() {
         )
     }
 
-    override fun onSaveGameLoaded(isComplete: Boolean) {
-        super.onSaveGameLoaded(isComplete)
-        if (isComplete) return
-
-        Global.getSector().listenerManager.addListener(this, true)
-    }
-
-    override fun onDestroyed() {
-        super.onDestroyed()
-        Global.getSector().listenerManager.removeListener(this)
-    }
-
     override fun advanceAfterInterval(amount: Float) {
         super.advanceAfterInterval(amount)
 
-        val itemsAlreadyInstalled = targets.filter { it.value.isComplete }
-
-        Global.getSector().playerFaction
-            ?.getFactionMarkets().orEmpty()
-            .flatMap { marketAPI ->
-                marketAPI.industries.orEmpty()
-                    .flatMap { it.installableItems.orEmpty() }
-            }
-            .mapNotNull { it.currentlyInstalledItemData?.id }
-            .toSet()
-            .forEach { installedItem ->
-                if (installedItem !in itemsAlreadyInstalled) {
-                    setTargetComplete(installedItem)
-                }
-            }
+        val installed = Global.getSector().playerFaction?.getFactionMarkets().orEmpty()
+            .flatMap { it.industries.orEmpty() }
+            .flatMap { it.installableItems.orEmpty() }
+            .mapNotNullTo(HashSet()) { it.currentlyInstalledItemData?.id }
+        val counted = targets.filterValues { it.isComplete }.keys
+        (installed - counted).forEach { setTargetComplete(it) }
     }
 }
