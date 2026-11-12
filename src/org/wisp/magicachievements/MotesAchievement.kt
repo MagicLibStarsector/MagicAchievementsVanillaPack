@@ -15,6 +15,7 @@ class MotesAchievement : MagicTargetListAchievement() {
 
         setTargets(
             mapOf(
+                AbyssalDrifterGhost::class.java.simpleName to "Abyssal Drifter",
                 ChargerGhost::class.java.simpleName to "Charger",
                 EchoGhost::class.java.simpleName to "Echo",
                 EncounterTricksterGhost::class.java.simpleName to "Encounter Trickster",

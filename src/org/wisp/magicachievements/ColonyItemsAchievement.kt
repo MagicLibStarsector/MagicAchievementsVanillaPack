@@ -5,6 +5,9 @@ import com.fs.starfarer.api.impl.campaign.ids.Items
 import org.magiclib.achievements.MagicTargetListAchievement
 import org.magiclib.kotlin.getFactionMarkets
 
+/**
+ * Installed every colony item.
+ */
 class ColonyItemsAchievement : MagicTargetListAchievement() {
     override fun onApplicationLoaded(isComplete: Boolean) {
         super.onApplicationLoaded(isComplete)

@@ -1,3 +1,9 @@
+Version 1.3.0
+- Starsector 0.98.5a support.
+-  Added 2 new achievements.
+  - Outsourced Production: Sold a blueprint to the pirates.
+  - First One's Free: Got a friendly reply to a distress call.
+
 Version 1.2.6
 - Fixed Pristine Condition erroring out.
 
