@@ -11,6 +11,7 @@ import org.magiclib.achievements.MagicAchievement
  * Lost to <ultra redacted>.
  */
 class OmegaLostAchievement : MagicAchievement() {
+    private var listener: OmegaLostAchievementListener? = null
 
     inner class OmegaLostAchievementListener : BaseCampaignEventListener(false) {
         override fun reportPlayerEngagement(result: EngagementResultAPI?) {
@@ -40,12 +41,14 @@ class OmegaLostAchievement : MagicAchievement() {
     override fun onSaveGameLoaded(isComplete: Boolean) {
         super.onSaveGameLoaded(isComplete)
         if (isComplete) return
-        Global.getSector().removeTransientScriptsOfClass(OmegaLostAchievementListener::class.java)
-        Global.getSector()?.addTransientListener(OmegaLostAchievementListener())
+        // Kept so onDestroyed can remove it. removeTransientScriptsOfClass removes scripts, not listeners.
+        listener?.let { Global.getSector().removeListener(it) }
+        listener = OmegaLostAchievementListener().also { Global.getSector().addTransientListener(it) }
     }
 
     override fun onDestroyed() {
         super.onDestroyed()
-        Global.getSector().removeTransientScriptsOfClass(OmegaLostAchievementListener::class.java)
+        listener?.let { Global.getSector().removeListener(it) }
+        listener = null
     }
 }

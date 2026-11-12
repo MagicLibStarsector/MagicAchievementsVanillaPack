@@ -37,8 +37,10 @@ class RevisionistAchievement : MagicAchievement() {
 
         if (interval.intervalElapsed()) {
             // This line is why I'm using Kotlin instead of Java.
+            // Uses each ship's fleet. A captain's fleet is only set for officers, not the player character.
+            // Sorted so the order ships were deployed in doesn't change the hash.
             val allFleetIdsInBattle =
-                Global.getCombatEngine().ships.mapNotNull { it.fleetMember?.captain?.fleet?.id }.distinct()
+                Global.getCombatEngine().ships.mapNotNull { it.fleetMember?.fleetData?.fleet?.id }.distinct().sorted()
             val fleetIdsHashed = Objects.hash(allFleetIdsInBattle)
             if (allFleetIdsInBattle.size < 2) return // During deployment, the other fleet is not in the battle yet.
 

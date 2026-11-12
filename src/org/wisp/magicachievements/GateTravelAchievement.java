@@ -27,9 +27,9 @@ public class GateTravelAchievement extends MagicAchievement implements GateTrans
     @Override
     public void reportFleetTransitingGate(CampaignFleetAPI fleet, SectorEntityToken gateFrom, SectorEntityToken gateTo) {
         if (fleet == Global.getSector().getPlayerFleet() && gateFrom != null && gateTo != null) {
-            float distance = Misc.getDistance(gateFrom.getLocationInHyperspace(), gateTo.getLocationInHyperspace());
+            float distanceLY = Misc.getDistanceLY(gateFrom.getLocationInHyperspace(), gateTo.getLocationInHyperspace());
 
-            if (distance >= 60) {
+            if (distanceLY >= 60) {
                 completeAchievement();
                 onDestroyed();
             }

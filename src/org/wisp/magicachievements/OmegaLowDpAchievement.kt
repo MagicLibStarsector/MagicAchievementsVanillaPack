@@ -11,6 +11,7 @@ import org.magiclib.achievements.MagicAchievement
  * Defeated <ultra redacted> using a maximum of 80 deployment points.
  */
 class OmegaLowDpAchievement : MagicAchievement() {
+    private var listener: OmegaLowDpAchievementListener? = null
 
     inner class OmegaLowDpAchievementListener : BaseCampaignEventListener(false) {
         override fun reportPlayerEngagement(result: EngagementResultAPI?) {
@@ -48,12 +49,14 @@ class OmegaLowDpAchievement : MagicAchievement() {
     override fun onSaveGameLoaded(isComplete: Boolean) {
         super.onSaveGameLoaded(isComplete)
         if (isComplete) return
-        Global.getSector().removeTransientScriptsOfClass(OmegaLowDpAchievementListener::class.java)
-        Global.getSector()?.addTransientListener(OmegaLowDpAchievementListener())
+        // Kept so onDestroyed can remove it. removeTransientScriptsOfClass removes scripts, not listeners.
+        listener?.let { Global.getSector().removeListener(it) }
+        listener = OmegaLowDpAchievementListener().also { Global.getSector().addTransientListener(it) }
     }
 
     override fun onDestroyed() {
         super.onDestroyed()
-        Global.getSector().removeTransientScriptsOfClass(OmegaLowDpAchievementListener::class.java)
+        listener?.let { Global.getSector().removeListener(it) }
+        listener = null
     }
 }

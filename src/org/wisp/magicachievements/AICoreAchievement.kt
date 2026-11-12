@@ -1,7 +1,6 @@
 package org.wisp.magicachievements
 
 import com.fs.starfarer.api.Global
-import com.fs.starfarer.api.campaign.rules.MemKeys
 import com.fs.starfarer.api.impl.campaign.econ.RogueAICore
 import com.fs.starfarer.api.util.Misc
 import org.magiclib.achievements.MagicAchievement
@@ -9,8 +8,7 @@ import org.magiclib.achievements.MagicAchievement
 /**
  * Had an AI core go rogue.
  *
- *
- * Mmm, delicious spaghetti code.
+ * The game adds the `rogue_ai_core` condition to a colony when the player orders a refusing AI core admin removed.
  */
 class AICoreAchievement : MagicAchievement() {
     override fun advanceAfterInterval(amount: Float) {
@@ -20,20 +18,8 @@ class AICoreAchievement : MagicAchievement() {
             return
         }
 
-        val dialog = Global.getSector().campaignUI.currentInteractionDialog ?: return
-
-        val localMem = dialog.plugin?.memoryMap.orEmpty()?.get(MemKeys.LOCAL) ?: return
-
-        val optionSelected = localMem["\$option"] ?: return
-
-        if (optionSelected.toString().startsWith("RACA_")) {
+        if (Misc.getPlayerMarkets(false).any { RogueAICore.get(it) != null }) {
             completeAchievement()
-        }
-
-        for (playerMarket in Misc.getPlayerMarkets(false)) {
-            if (RogueAICore.get(playerMarket) != null) {
-                completeAchievement()
-            }
         }
     }
 }

@@ -20,7 +20,7 @@ public class FleetDoctrineAchievement extends MagicAchievement {
     @Override
     public void onSaveGameLoaded(boolean isComplete) {
         super.onSaveGameLoaded(isComplete);
-        if (isComplete) return;
+        // Filled even when complete so the tooltip shows the list.
         allTechTypes.clear();
 
         // Grab column from ship_hulls.csv and then search skins folder for "TECH", paste into VS Code, wrangle.
@@ -39,7 +39,7 @@ public class FleetDoctrineAchievement extends MagicAchievement {
 
     @Override
     public void advanceInCombat(float amount, List<InputEventAPI> events, boolean isSimulation) {
-        if (isSimulation) return;
+        if (isSimulation || isComplete()) return;
         if (allTechTypes.isEmpty()) return;
         CombatEngineAPI combatEngine = Global.getCombatEngine();
 

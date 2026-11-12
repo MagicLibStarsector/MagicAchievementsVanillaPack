@@ -3,6 +3,14 @@ Version 1.3.0
 -  Added 2 new achievements.
   - Outsourced Production: Sold a blueprint to the pirates.
   - First One's Free: Got a friendly reply to a distress call.
+- Fixed Big Hop completing on any gate jump.
+- Fixed I’m Sorry, Dave and Lucky Start being impossible to get.
+- Fixed Revisionist never completing if you had no officers deployed.
+- Fixed the Slayer series needing one kill more than it says.
+- Fixed Tapped Out, I Am The Alpha and Call An Ambulance leaving extra listeners behind after every load.
+- Fixed What Is ‘Fleet Doctrine’? showing an empty tooltip once completed.
+- And Over The Ashes now also needs Culann, Kazeron and Sindria.
+- Renamed Unconditional to Not Very Resourceful (“Surveyed a planet with no resources.”), now Uncommon.
 
 Version 1.2.6
 - Fixed Pristine Condition erroring out.

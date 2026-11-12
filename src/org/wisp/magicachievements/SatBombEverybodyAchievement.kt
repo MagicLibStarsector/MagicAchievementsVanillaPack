@@ -16,11 +16,14 @@ class SatBombEverybodyAchievement : MagicTargetListAchievement(), ColonyPlayerHo
 
         setTargets(
             listOf(
-                "chicomoztoc",
-                "gilead",
-                "hesperus", // TODO ?
-                "jangala",
-                "volturn",
+                "chicomoztoc", // Hegemony
+                "culann", // Tri-Tachyon
+                "gilead", // Luddic Church
+                "hesperus", // Luddic Church
+                "jangala", // Hegemony
+                "kazeron", // Persean League
+                "sindria", // Sindrian Diktat
+                "volturn", // Sindrian Diktat
             )
                 .associateWith { Global.getSector().economy.getMarket(it)?.name ?: it }
         )

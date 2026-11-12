@@ -25,7 +25,7 @@ abstract class SlayerMagicAchievement : MagicAchievement() {
             val involvedFraction = battle.playerInvolvementFraction
 
             shipsKilled += (recentShipsKilled * involvedFraction).roundToInt()
-            if (shipsKilled > maxProgress) {
+            if (shipsKilled >= maxProgress) {
                 this@SlayerMagicAchievement.completeAchievement()
                 this@SlayerMagicAchievement.onDestroyed()
             }
@@ -40,7 +40,9 @@ abstract class SlayerMagicAchievement : MagicAchievement() {
     }
 
     override fun onDestroyed() {
-        Global.getSector().removeListener(listener)
+        super.onDestroyed()
+        listener?.let { Global.getSector().removeListener(it) }
+        listener = null
     }
 
     override fun getProgress(): Float = shipsKilled.toFloat()

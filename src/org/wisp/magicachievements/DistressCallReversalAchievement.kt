@@ -23,6 +23,11 @@ class DistressCallReversalAchievement : MagicAchievement(), FleetEventListener {
             Global.getSector().listenerManager.addListener(this, true)
     }
 
+    override fun onDestroyed() {
+        super.onDestroyed()
+        Global.getSector().listenerManager.removeListener(this)
+    }
+
     override fun onCompleted(completedByPlayer: PersonAPI?) {
         MagicPaintjobManager.unlockPaintjob("fury_racing")
     }
@@ -37,6 +42,7 @@ class DistressCallReversalAchievement : MagicAchievement(), FleetEventListener {
             } == true
         ) {
             completeAchievement()
+            onDestroyed()
         }
     }
 

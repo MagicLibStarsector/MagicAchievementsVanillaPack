@@ -43,9 +43,10 @@ wisp_magicAchievementsVanillaPack_gatetravel,"Big Hop","Traveled 60 LY in a sing
 wisp_magicAchievementsVanillaPack_neural,"Assuming Direct Control","Used Neural Link to control an automated ship.",,org.wisp.magicachievements.NeuralAchievement,,VISIBLE,UNCOMMON
 wisp_magicAchievementsVanillaPack_satbombeverybody,"And Over The Ashes","Saturation bombed all vanilla faction homeworlds.",,org.wisp.magicachievements.SatBombEverybodyAchievement,,VISIBLE,UNCOMMON
 wisp_magicAchievementsVanillaPack_distresscallreversal,"Call An Ambulance, But Not For Me","Turn around a bogus distress call.",,org.wisp.magicachievements.DistressCallReversalAchievement,,VISIBLE,UNCOMMON
-wisp_magicAchievementsVanillaPack_safetiesOff,"Safeties Off","Fielded 10 ships with Safety Overrides simultaneously in a battle.",,org.wisp.magicachievements.SafetiesOffAchievement,,VISIBLE,UNCOMMON
-wisp_magicAchievementsVanillaPack_fighterBays,"Not The Bees!","Fielded 30 Fighter Bays simultaneously in a battle.",,org.wisp.magicachievements.FighterBaysAchievement,,VISIBLE,UNCOMMON
+wisp_magicAchievementsVanillaPack_safetiesOff,"Safeties Off","Fielded 10 ships with Safety Overrides in one battle.",,org.wisp.magicachievements.SafetiesOffAchievement,,VISIBLE,UNCOMMON
+wisp_magicAchievementsVanillaPack_fighterBays,"Not The Bees!","Fielded 30 Fighter Bays in one battle.",,org.wisp.magicachievements.FighterBaysAchievement,,VISIBLE,UNCOMMON
 wisp_magicAchievementsVanillaPack_sebestyen,"BFFs","Reached 100 reputation with Sebestyen.",,org.wisp.magicachievements.SebestyenAchievement,,VISIBLE,UNCOMMON
+wisp_magicAchievementsVanillaPack_noconditions,"Not Very Resourceful","Surveyed a planet with no resources.",,org.wisp.magicachievements.NoConditionsAchievement,,VISIBLE,UNCOMMON
 ### Adept series
 wisp_magicAchievementsVanillaPack_conquest1,"Conquest Adept","Destroy enemies using the Conquest.",,org.wisp.magicachievements.ConquestKillsAchievement,,VISIBLE,UNCOMMON
 wisp_magicAchievementsVanillaPack_champion1,"Champion Adept","Destroy enemies using the Champion.",,org.wisp.magicachievements.ChampionKillsAchievement,,VISIBLE,UNCOMMON
@@ -56,7 +57,6 @@ wisp_magicAchievementsVanillaPack_sunder1,"Sunder Adept","Destroy enemies using 
 
 # Rare
 wisp_magicAchievementsVanillaPack_paradise,"Paradise","Surveyed a planet with 75% hazard or better.",,org.wisp.magicachievements.ParadiseAchievement,,VISIBLE,RARE
-wisp_magicAchievementsVanillaPack_noconditions,"Unconditional","Surveyed a planet with no conditions.",,org.wisp.magicachievements.NoConditionsAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_powerofthesun,"The Power Of The Sun, In The Palm Of My Hand","Gave one of your colonies extra sunlight.",,org.wisp.magicachievements.PowerOfTheSunAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_motes,"Who You Gonna Call?","Encountered eight different hyperspace ghosts.",,org.wisp.magicachievements.MotesAchievement,,VISIBLE,RARE
 wisp_magicAchievementsVanillaPack_luckystart,"Lucky Start","Found a capital derelict within the first month.",,org.wisp.magicachievements.LuckyStartAchievement,,VISIBLE,RARE
